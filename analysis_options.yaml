@@ -6,4 +6,4 @@ linter:
     prefer_const_constructors: true
 
 formatter: 
-  page_width: 40
+  page_width: 80
