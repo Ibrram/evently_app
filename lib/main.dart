@@ -17,6 +17,7 @@ class MainApp extends StatelessWidget {
       darkTheme: AppThemeManager.darkTheme,
       initialRoute: RoutesName.initial,
       onGenerateRoute: AppRoutes.onGenerateRoutes,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
