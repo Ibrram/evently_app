@@ -22,84 +22,85 @@ class RegisterScreen extends StatelessWidget {
         centerTitle: true,
         forceMaterialTransparency: true,
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            spacing: 16,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Image.asset(AppAssets.logoV, height: 185),
-              const SizedBox(height: 8),
-              const CustomTextFormField(
-                hintText: 'Name',
-                prefixWidget: ImageIcon(
-                  AssetImage(AppAssets.userIcon),
-                  color: ColorPalette.textFormBorderColor,
-                ),
-              ),
-              const CustomTextFormField(
-                hintText: 'Email',
-                prefixWidget: ImageIcon(
-                  AssetImage(AppAssets.emailIcon),
-                  color: ColorPalette.textFormBorderColor,
-                ),
-              ),
-              const CustomTextFormField(
-                isPassword: true,
-                hintText: 'Password',
-                prefixWidget: ImageIcon(
-                  AssetImage(AppAssets.passwordIcon),
-                  color: ColorPalette.textFormBorderColor,
-                ),
-              ),
-              const CustomTextFormField(
-                isPassword: true,
-                hintText: 'Re Password',
-                prefixWidget: ImageIcon(
-                  AssetImage(AppAssets.passwordIcon),
-                  color: ColorPalette.textFormBorderColor,
-                ),
-              ),
-              CustomButton(
-                onPressed: () {},
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text('Register', style: theme.textTheme.bodyLarge),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Already Have Account?',
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: ColorPalette.blackTextColor,
-                    ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              spacing: 16,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Image.asset(AppAssets.logoV, height: 185),
+                const SizedBox(height: 8),
+                const CustomTextFormField(
+                  hintText: 'Name',
+                  prefixWidget: ImageIcon(
+                    AssetImage(AppAssets.userIcon),
+                    color: ColorPalette.textFormBorderColor,
                   ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    style: TextButton.styleFrom(
-                      padding: const EdgeInsets.all(4),
-                      minimumSize: Size.zero,
-                    ),
-                    child: Text(
-                      'Login',
+                ),
+                const CustomTextFormField(
+                  hintText: 'Email',
+                  prefixWidget: ImageIcon(
+                    AssetImage(AppAssets.emailIcon),
+                    color: ColorPalette.textFormBorderColor,
+                  ),
+                ),
+                const CustomTextFormField(
+                  isPassword: true,
+                  hintText: 'Password',
+                  prefixWidget: ImageIcon(
+                    AssetImage(AppAssets.passwordIcon),
+                    color: ColorPalette.textFormBorderColor,
+                  ),
+                ),
+                const CustomTextFormField(
+                  isPassword: true,
+                  hintText: 'Re Password',
+                  prefixWidget: ImageIcon(
+                    AssetImage(AppAssets.passwordIcon),
+                    color: ColorPalette.textFormBorderColor,
+                  ),
+                ),
+                CustomButton(
+                  onPressed: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text('Register', style: theme.textTheme.bodyLarge),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Already Have Account?',
                       style: theme.textTheme.bodyMedium?.copyWith(
-                        color: ColorPalette.primaryColor,
-                        decoration: TextDecoration.underline,
-                        decorationColor: ColorPalette.primaryColor,
-                        decorationThickness: 2,
-                        fontStyle: FontStyle.italic,
+                        color: ColorPalette.blackTextColor,
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      style: TextButton.styleFrom(
+                        padding: const EdgeInsets.all(0),
+                        minimumSize: Size.zero,
+                      ),
+                      child: Text(
+                        'Login',
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: ColorPalette.primaryColor,
+                          decoration: TextDecoration.underline,
+                          decorationColor: ColorPalette.primaryColor,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
