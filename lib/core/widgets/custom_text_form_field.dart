@@ -36,6 +36,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       onChanged: widget.onChanged,
       onFieldSubmitted: widget.onFieldSubmitted,
       obscureText: widget.isPassword ? obScureStatus : false,
+      style: theme.textTheme.bodyMedium?.copyWith(
+        color: ColorPalette.blackTextColor,
+      ),
       decoration: InputDecoration(
         hintText: widget.hintText,
         hintStyle: theme.textTheme.bodyMedium?.copyWith(

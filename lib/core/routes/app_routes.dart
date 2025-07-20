@@ -1,5 +1,6 @@
 import 'package:evently_task_app/core/routes/routes_name.dart';
 import 'package:evently_task_app/modules/authentication/screens/login_screen.dart';
+import 'package:evently_task_app/modules/authentication/screens/register_screen.dart';
 import 'package:evently_task_app/modules/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,12 @@ abstract class AppRoutes {
       case RoutesName.login:
         return MaterialPageRoute(
           builder: (context) => const LoginScreen(),
+          settings: settings,
+        );
+      //
+      case RoutesName.register:
+        return MaterialPageRoute(
+          builder: (context) => const RegisterScreen(),
           settings: settings,
         );
       //

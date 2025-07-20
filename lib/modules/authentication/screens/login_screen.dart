@@ -1,4 +1,5 @@
 import 'package:evently_task_app/core/constants/app_assets.dart';
+import 'package:evently_task_app/core/routes/routes_name.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
 import 'package:evently_task_app/core/widgets/custom_button.dart';
 import 'package:evently_task_app/core/widgets/custom_text_form_field.dart';
@@ -80,7 +81,9 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, RoutesName.register);
+                  },
                   style: TextButton.styleFrom(padding: const EdgeInsets.all(4)),
                   child: Text(
                     'Create Account',
