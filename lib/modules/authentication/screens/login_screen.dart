@@ -12,6 +12,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
@@ -46,7 +47,9 @@ class LoginScreen extends StatelessWidget {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, RoutesName.forgetPassword);
+                },
                 child: Text(
                   'Forget Password?',
                   style: theme.textTheme.bodyMedium?.copyWith(

@@ -5,4 +5,6 @@ abstract class AppAssets {
   static const String passwordIcon = 'assets/icons/password_icon.png';
   static const String googleIcon = 'assets/icons/google_icon.png';
   static const String userIcon = 'assets/icons/user_icon.png';
+  static const String forgetPassImage =
+      'assets/images/forget_password_screen_image.png';
 }
