@@ -5,11 +5,13 @@ abstract class AppThemeManager {
     scaffoldBackgroundColor: Colors.white,
     textTheme: const TextTheme(
       bodyLarge: TextStyle(
+        fontFamily: 'Inter',
         fontWeight: FontWeight.w500,
         fontSize: 20,
         color: Colors.white,
       ),
       bodyMedium: TextStyle(
+        fontFamily: 'Inter',
         fontWeight: FontWeight.w500,
         fontSize: 16,
         color: Colors.white,

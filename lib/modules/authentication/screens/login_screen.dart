@@ -46,13 +46,12 @@ class LoginScreen extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: TextButton(
                 onPressed: () {},
-                child: const Text(
+                child: Text(
                   'Forget Password?',
-                  style: TextStyle(
+                  style: theme.textTheme.bodyMedium?.copyWith(
                     color: ColorPalette.primaryColor,
                     fontWeight: FontWeight.w700,
                     fontStyle: FontStyle.italic,
-                    fontSize: 16,
                     decoration: TextDecoration.underline,
                     decorationColor: ColorPalette.primaryColor,
                     decorationThickness: 2,
@@ -63,35 +62,29 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 24),
             CustomButton(
               onPressed: () {},
-              child: const Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Text(
-                  'Login',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text('Login', style: theme.textTheme.bodyLarge),
               ),
             ),
+
             const SizedBox(height: 24),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+                Text(
                   'Don’t Have Account?',
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: ColorPalette.blackTextColor,
+                  ),
                 ),
                 TextButton(
                   onPressed: () {},
                   style: TextButton.styleFrom(padding: const EdgeInsets.all(4)),
-                  child: const Text(
+                  child: Text(
                     'Create Account',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
+                    style: theme.textTheme.bodyMedium?.copyWith(
                       color: ColorPalette.primaryColor,
                       decoration: TextDecoration.underline,
                       decorationColor: ColorPalette.primaryColor,

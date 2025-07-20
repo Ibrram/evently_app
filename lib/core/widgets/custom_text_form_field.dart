@@ -29,6 +29,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   bool obScureStatus = true;
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
+
     return TextFormField(
       controller: widget.controller,
       onChanged: widget.onChanged,
@@ -36,10 +38,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       obscureText: widget.isPassword ? obScureStatus : false,
       decoration: InputDecoration(
         hintText: widget.hintText,
-        hintStyle: const TextStyle(
+        hintStyle: theme.textTheme.bodyMedium?.copyWith(
           color: ColorPalette.textFormHintTextColor,
-          fontWeight: FontWeight.w500,
-          fontSize: 16,
         ),
         prefixIcon: widget.prefixWidget,
         prefixIconColor: widget.prefixColor,

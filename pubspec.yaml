@@ -21,3 +21,10 @@ flutter:
     - assets/fonts/
     - assets/icons/
     - assets/images/
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter/Inter_18pt-Regular.ttf
+        - asset: assets/fonts/Inter/Inter_18pt-Medium.ttf
+        - asset: assets/fonts/Inter/Inter_18pt-SemiBold.ttf
+        - asset: assets/fonts/Inter/Inter_18pt-Bold.ttf
