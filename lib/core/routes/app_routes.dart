@@ -3,6 +3,7 @@ import 'package:evently_task_app/modules/authentication/screens/forget_password_
 import 'package:evently_task_app/modules/authentication/screens/login_screen.dart';
 import 'package:evently_task_app/modules/authentication/screens/register_screen.dart';
 import 'package:evently_task_app/modules/splash/splash_screen.dart';
+import 'package:evently_task_app/modules/sub_modules/layout_controller.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppRoutes {
@@ -29,6 +30,12 @@ abstract class AppRoutes {
       case RoutesName.forgetPassword:
         return MaterialPageRoute(
           builder: (context) => const ForgetPasswordScreen(),
+          settings: settings,
+        );
+      //
+      case RoutesName.layoutController:
+        return MaterialPageRoute(
+          builder: (context) => const LayoutController(),
           settings: settings,
         );
       //

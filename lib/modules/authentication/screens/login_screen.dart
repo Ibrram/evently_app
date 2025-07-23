@@ -66,7 +66,12 @@ class LoginScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
                   CustomButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        RoutesName.layoutController,
+                      );
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Text('Login', style: theme.textTheme.bodyLarge),
