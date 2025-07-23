@@ -21,6 +21,7 @@ flutter:
     - assets/fonts/
     - assets/icons/
     - assets/images/
+    - assets/images/events_background/
   fonts:
     - family: Inter
       fonts:
