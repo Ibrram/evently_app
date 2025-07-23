@@ -15,10 +15,7 @@ class EventCardWidget extends StatelessWidget {
       children: [
         Container(
           margin: const EdgeInsets.all(8),
-          padding: const EdgeInsets.symmetric(
-            // vertical: 8,
-            horizontal: 6,
-          ),
+          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
           decoration: BoxDecoration(
             color: ColorPalette.scaffoldBackground.withAlpha(204),
             borderRadius: BorderRadius.circular(8),
@@ -26,7 +23,7 @@ class EventCardWidget extends StatelessWidget {
           child: Text(
             event.date,
             textAlign: TextAlign.center,
-            style: theme.textTheme.bodyLarge?.copyWith(
+            style: theme.textTheme.bodyMedium?.copyWith(
               color: theme.primaryColor,
               fontWeight: FontWeight.w700,
             ),
@@ -37,7 +34,7 @@ class EventCardWidget extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
           decoration: BoxDecoration(
-            color: ColorPalette.scaffoldBackground.withAlpha(204),
+            color: ColorPalette.scaffoldBackground,
             borderRadius: BorderRadius.circular(8),
           ),
           child: Row(
