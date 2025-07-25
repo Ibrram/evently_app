@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "139660408618",
+    "project_id": "event-task-app-ae4a6",
+    "storage_bucket": "event-task-app-ae4a6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139660408618:android:fdad65c23a8e31fc431053",
+        "android_client_info": {
+          "package_name": "com.piro.evently_task_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIeavjvLqsPZysm8eiDWlU6P7HR6LP4Fw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
