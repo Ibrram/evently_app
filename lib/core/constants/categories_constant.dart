@@ -14,7 +14,7 @@ class CategoriesConstant {
     CategoriesConstant(
       icon: Icons.pedal_bike_outlined,
       backgroundImagePath: "",
-      name: "Sports",
+      name: "Sport",
     ),
     CategoriesConstant(
       icon: Icons.cake_outlined,
@@ -25,6 +25,11 @@ class CategoriesConstant {
       icon: Icons.menu_book_rounded,
       backgroundImagePath: "",
       name: "Book Club",
+    ),
+    CategoriesConstant(
+      icon: Icons.video_chat_outlined,
+      backgroundImagePath: "",
+      name: "Meeting",
     ),
     CategoriesConstant(
       icon: Icons.gamepad_outlined,

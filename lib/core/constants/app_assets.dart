@@ -15,4 +15,23 @@ abstract class AppAssets {
   static const String favFillIcon = 'assets/icons/fav_fill_icon.png';
   static const String profileIcon = 'assets/icons/profile_icon.png';
   static const String profileFillIcon = 'assets/icons/profile_fill_icon.png';
+  //
+  static const String sportEventBackground =
+      'assets/images/events_background/sport.png';
+  static const String birthDayEventBackground =
+      'assets/images/events_background/birthday.png';
+  static const String bookClubEventBackground =
+      'assets/images/events_background/bookclub.png';
+  static const String meetingEventBackground =
+      'assets/images/events_background/meeting.png';
+  static const String gamingEventBackground =
+      'assets/images/events_background/gaming.png';
+  static const String holidayEventBackground =
+      'assets/images/events_background/holiday.png';
+  static const String eatingEventBackground =
+      'assets/images/events_background/eating.png';
+  static const String workShopEventBackground =
+      'assets/images/events_background/workshop.png';
+  static const String exhibitionEventBackground =
+      'assets/images/events_background/exhibition.png';
 }
