@@ -1,52 +1,52 @@
 import 'package:flutter/material.dart';
 
-class CategoryModel {
+class CategoriesConstant {
   IconData icon;
   String backgroundImagePath, name;
 
-  CategoryModel({
+  CategoriesConstant({
     required this.icon,
     required this.backgroundImagePath,
     required this.name,
   });
 
-  static List<CategoryModel> categories = [
-    CategoryModel(
+  static List<CategoriesConstant> categories = [
+    CategoriesConstant(
       icon: Icons.pedal_bike_outlined,
       backgroundImagePath: "",
       name: "Sports",
     ),
-    CategoryModel(
+    CategoriesConstant(
       icon: Icons.cake_outlined,
       backgroundImagePath: "",
       name: "Birthday",
     ),
-    CategoryModel(
-      icon: Icons.cake_outlined,
+    CategoriesConstant(
+      icon: Icons.menu_book_rounded,
       backgroundImagePath: "",
       name: "Book Club",
     ),
-    CategoryModel(
+    CategoriesConstant(
       icon: Icons.gamepad_outlined,
       backgroundImagePath: "",
       name: "Gaming",
     ),
-    CategoryModel(
+    CategoriesConstant(
       icon: Icons.free_cancellation_outlined,
       backgroundImagePath: "",
       name: "Holiday",
     ),
-    CategoryModel(
+    CategoriesConstant(
       icon: Icons.fastfood_outlined,
       backgroundImagePath: "",
       name: "Eating",
     ),
-    CategoryModel(
+    CategoriesConstant(
       icon: Icons.workspace_premium_outlined,
       backgroundImagePath: "",
       name: "Work Shop",
     ),
-    CategoryModel(
+    CategoriesConstant(
       icon: Icons.museum_outlined,
       backgroundImagePath: "",
       name: "Exhibition",

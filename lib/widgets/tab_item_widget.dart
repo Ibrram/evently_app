@@ -1,5 +1,5 @@
+import 'package:evently_task_app/core/constants/categories_constant.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
-import 'package:evently_task_app/modules/sub_modules/home/models/category_model.dart';
 import 'package:flutter/material.dart';
 
 class TabItemWidget extends StatelessWidget {
@@ -8,7 +8,7 @@ class TabItemWidget extends StatelessWidget {
     required this.category,
     required this.isActive,
   });
-  final CategoryModel category;
+  final CategoriesConstant category;
   final bool isActive;
 
   @override

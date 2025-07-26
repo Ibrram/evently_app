@@ -1,6 +1,9 @@
 import 'package:evently_task_app/core/constants/app_assets.dart';
 import 'package:evently_task_app/core/constants/layout_screens.dart';
+import 'package:evently_task_app/core/routes/routes_name.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
+// import 'package:evently_task_app/models/event_model.dart';
+// import 'package:evently_task_app/utils/firebase_firestore_util.dart';
 import 'package:flutter/material.dart';
 
 class LayoutController extends StatefulWidget {
@@ -19,7 +22,9 @@ class _LayoutControllerState extends State<LayoutController> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, RoutesName.createEvent);
+        },
         backgroundColor: Colors.white,
         shape: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.transparent),
@@ -54,18 +59,19 @@ class _LayoutControllerState extends State<LayoutController> {
             activeIcon: ImageIcon(AssetImage(AppAssets.homeFillIcon)),
             label: 'Home',
           ),
+
           const BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(AppAssets.mapIcon)),
             activeIcon: ImageIcon(AssetImage(AppAssets.mapFillIcon)),
-
             label: 'Map',
           ),
+
           const BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(AppAssets.favIcon)),
             activeIcon: ImageIcon(AssetImage(AppAssets.favFillIcon)),
-
             label: 'Love',
           ),
+
           const BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(AppAssets.profileIcon)),
             activeIcon: ImageIcon(AssetImage(AppAssets.profileFillIcon)),

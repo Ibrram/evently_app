@@ -4,4 +4,5 @@ abstract class RoutesName {
   static const String register = '/register';
   static const String forgetPassword = '/forget_password';
   static const String layoutController = '/layout_controller';
+  static const String createEvent = '/create_event';
 }

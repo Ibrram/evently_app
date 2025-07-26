@@ -1,9 +1,9 @@
 import 'package:evently_task_app/core/constants/app_assets.dart';
+import 'package:evently_task_app/core/constants/categories_constant.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
-import 'package:evently_task_app/modules/sub_modules/home/models/category_model.dart';
 import 'package:evently_task_app/modules/sub_modules/home/models/event_model.dart';
 import 'package:evently_task_app/modules/sub_modules/home/widgets/event_card_widget.dart';
-import 'package:evently_task_app/modules/sub_modules/home/widgets/tab_item_widget.dart';
+import 'package:evently_task_app/widgets/tab_item_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
 
                 DefaultTabController(
-                  length: CategoryModel.categories.length,
+                  length: CategoriesConstant.categories.length,
                   child: TabBar(
                     onTap: (value) {
                       setState(() {
@@ -108,12 +108,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     tabAlignment: TabAlignment.start,
                     dividerColor: Colors.transparent,
                     labelPadding: EdgeInsets.zero,
-                    tabs: CategoryModel.categories.map((data) {
+                    tabs: CategoriesConstant.categories.map((data) {
                       currentCategoryIndex;
                       return TabItemWidget(
                         category: data,
                         isActive:
-                            CategoryModel.categories.indexOf(data) ==
+                            CategoriesConstant.categories.indexOf(data) ==
                             currentCategoryIndex,
                       );
                     }).toList(),
@@ -140,6 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     image: AssetImage(
                       'assets/images/events_background/${currentEvent.category}.png',
                     ),
+                    fit: BoxFit.cover,
                   ),
                 ),
                 child: EventCardWidget(event: currentEvent),

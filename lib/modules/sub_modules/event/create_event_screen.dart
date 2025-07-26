@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+
+class CreateEventScreen extends StatefulWidget {
+  const CreateEventScreen({super.key});
+
+  @override
+  State<CreateEventScreen> createState() => _CreateEventScreenState();
+}
+
+class _CreateEventScreenState extends State<CreateEventScreen> {
+  @override
+  Widget build(BuildContext context) {
+    // var theme = Theme.of(context);
+
+    return Scaffold(appBar: AppBar(title: const Text('Create Event')));
+  }
+}

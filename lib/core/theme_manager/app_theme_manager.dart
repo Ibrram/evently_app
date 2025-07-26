@@ -4,6 +4,15 @@ import 'package:flutter/material.dart';
 abstract class AppThemeManager {
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: ColorPalette.scaffoldBackground,
+    appBarTheme: const AppBarTheme(
+      foregroundColor: ColorPalette.primaryColor,
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        fontSize: 22,
+        color: ColorPalette.primaryColor,
+        fontWeight: FontWeight.w400,
+      ),
+    ),
     primaryColor: ColorPalette.primaryColor,
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: ColorPalette.primaryColor,
