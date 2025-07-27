@@ -3,6 +3,8 @@ import 'package:evently_task_app/core/constants/categories_constant.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
 import 'package:evently_task_app/core/widgets/custom_button.dart';
 import 'package:evently_task_app/core/widgets/custom_text_form_field.dart';
+import 'package:evently_task_app/models/event_model.dart';
+import 'package:evently_task_app/utils/firebase_firestore_util.dart';
 import 'package:evently_task_app/widgets/tab_item_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -229,7 +231,16 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
 
               CustomButton(
                 onPressed: () {
-                  print('$category | $name | $description');
+                  FirebaseFirestoreUtil.createEvent(
+                    EventModel(
+                      id: '0',
+                      name: name,
+                      category: category,
+                      description: description,
+                      isFavourite: false,
+                    ),
+                    context,
+                  );
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
