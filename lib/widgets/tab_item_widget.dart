@@ -7,9 +7,11 @@ class TabItemWidget extends StatelessWidget {
     super.key,
     required this.category,
     required this.isActive,
+    this.isEventPage = false,
   });
   final CategoriesConstant category;
   final bool isActive;
+  final bool isEventPage;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +20,14 @@ class TabItemWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       margin: const EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
-        color: isActive ? ColorPalette.scaffoldBackground : Colors.transparent,
-        border: Border.all(color: Colors.white),
+        color: isActive
+            ? isEventPage
+                  ? theme.primaryColor
+                  : ColorPalette.scaffoldBackground
+            : Colors.transparent,
+        border: Border.all(
+          color: isEventPage ? theme.primaryColor : Colors.white,
+        ),
         borderRadius: BorderRadius.circular(46),
       ),
       child: Row(
@@ -29,13 +37,23 @@ class TabItemWidget extends StatelessWidget {
             category.icon,
             size: 24,
             color: isActive
+                ? isEventPage
+                      ? ColorPalette.scaffoldBackground
+                      : theme.primaryColor
+                : isEventPage
                 ? theme.primaryColor
                 : ColorPalette.scaffoldBackground,
           ),
           Text(
             category.name,
             style: theme.textTheme.bodyMedium?.copyWith(
-              color: isActive ? theme.primaryColor : Colors.white,
+              color: isActive
+                  ? isEventPage
+                        ? ColorPalette.scaffoldBackground
+                        : theme.primaryColor
+                  : isEventPage
+                  ? theme.primaryColor
+                  : Colors.white,
             ),
           ),
         ],

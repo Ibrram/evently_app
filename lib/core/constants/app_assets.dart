@@ -15,6 +15,7 @@ abstract class AppAssets {
   static const String favFillIcon = 'assets/icons/fav_fill_icon.png';
   static const String profileIcon = 'assets/icons/profile_icon.png';
   static const String profileFillIcon = 'assets/icons/profile_fill_icon.png';
+  static const String noteEdit = 'assets/icons/note_edit.png';
   //
   static const String sportEventBackground =
       'assets/images/events_background/sport.png';

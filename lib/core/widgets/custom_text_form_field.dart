@@ -11,15 +11,21 @@ class CustomTextFormField extends StatefulWidget {
     this.isPassword = false,
     this.onChanged,
     this.onFieldSubmitted,
+    this.maxLine,
+    this.minLine,
+    this.textInputType,
   });
 
   final Widget? prefixWidget;
   final Color? prefixColor;
   final String? hintText;
   final bool isPassword;
+  final int? maxLine;
+  final int? minLine;
   final TextEditingController? controller;
   final void Function(String)? onChanged;
   final void Function(String)? onFieldSubmitted;
+  final TextInputType? textInputType;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -36,6 +42,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       onChanged: widget.onChanged,
       onFieldSubmitted: widget.onFieldSubmitted,
       obscureText: widget.isPassword ? obScureStatus : false,
+      maxLines: widget.maxLine ?? 1,
+      keyboardType: widget.textInputType,
+      minLines: widget.minLine,
       style: theme.textTheme.bodyMedium?.copyWith(
         color: ColorPalette.blackTextColor,
       ),

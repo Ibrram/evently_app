@@ -5,6 +5,8 @@ abstract class AppThemeManager {
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: ColorPalette.scaffoldBackground,
     appBarTheme: const AppBarTheme(
+      // scrolledUnderElevation: 0.0,
+      // elevation: 0.0,
       foregroundColor: ColorPalette.primaryColor,
       centerTitle: true,
       titleTextStyle: TextStyle(
