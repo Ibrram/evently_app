@@ -1,16 +1,21 @@
 class EventModel {
   static const String collection = 'events';
-  final String id;
+  String? id;
   final String name;
   final String description;
-  final String category;
-  final bool isFavourite;
+  final String date;
+  final String time;
+  final int categoryId;
+  final bool? isFavourite;
+
   EventModel({
-    required this.id,
+    this.id,
     required this.name,
     required this.description,
-    required this.category,
-    required this.isFavourite,
+    required this.date,
+    required this.time,
+    required this.categoryId,
+    this.isFavourite = false,
   });
 
   Map<String, dynamic> toFirestore() {
@@ -18,18 +23,24 @@ class EventModel {
       'id': id,
       'name': name,
       'description': description,
-      'category': category,
+      'date': date,
+      'time': time,
+      'categoryId': categoryId,
       'isFavourite': isFavourite,
     };
   }
 
   factory EventModel.fromFirestore(Map<String, dynamic> map) {
     return EventModel(
-      id: map['id'] as String,
+      id: map['id'] != null ? map['id'] as String : null,
       name: map['name'] as String,
       description: map['description'] as String,
-      category: map['category'] as String,
-      isFavourite: map['isFavourite'] as bool,
+      date: map['date'] as String,
+      time: map['time'] as String,
+      categoryId: map['categoryId'] as int,
+      isFavourite: map['isFavourite'] != null
+          ? map['isFavourite'] as bool
+          : null,
     );
   }
 }

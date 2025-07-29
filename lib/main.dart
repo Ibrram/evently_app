@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:evently_task_app/core/routes/app_routes.dart';
 import 'package:evently_task_app/core/routes/routes_name.dart';
 import 'package:evently_task_app/core/theme_manager/app_theme_manager.dart';
@@ -26,7 +27,7 @@ class MainApp extends StatelessWidget {
       initialRoute: RoutesName.initial,
       onGenerateRoute: AppRoutes.onGenerateRoutes,
       debugShowCheckedModeBanner: false,
-      builder: EasyLoading.init(),
+      builder: EasyLoading.init(builder: BotToastInit()),
     );
   }
 }

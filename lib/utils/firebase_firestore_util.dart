@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:evently_task_app/models/event_model.dart';
-import 'package:flutter/material.dart';
 
 abstract class FirebaseFirestoreUtil {
   static CollectionReference<EventModel> _getCollectionReference() {
@@ -13,17 +12,14 @@ abstract class FirebaseFirestoreUtil {
         );
   }
 
-  static void createEvent(EventModel event, context) async {
-    var reference = _getCollectionReference();
+  static Future<bool> createEvent(EventModel event) async {
     try {
-      await reference.doc().set(event);
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('Event added Successfully')));
+      var reference = _getCollectionReference().doc();
+      event.id = reference.id;
+      await reference.set(event);
+      return true;
     } catch (e) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text('Error Happenet: $e')));
+      return false;
     }
   }
 }

@@ -14,6 +14,7 @@ class CustomTextFormField extends StatefulWidget {
     this.maxLine,
     this.minLine,
     this.textInputType,
+    this.validator,
   });
 
   final Widget? prefixWidget;
@@ -26,6 +27,7 @@ class CustomTextFormField extends StatefulWidget {
   final void Function(String)? onChanged;
   final void Function(String)? onFieldSubmitted;
   final TextInputType? textInputType;
+  final String? Function(String?)? validator;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -45,6 +47,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       maxLines: widget.maxLine ?? 1,
       keyboardType: widget.textInputType,
       minLines: widget.minLine,
+      validator: widget.validator,
       style: theme.textTheme.bodyMedium?.copyWith(
         color: ColorPalette.blackTextColor,
       ),

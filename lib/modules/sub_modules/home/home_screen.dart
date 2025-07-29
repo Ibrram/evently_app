@@ -1,5 +1,4 @@
 import 'package:evently_task_app/core/constants/app_assets.dart';
-import 'package:evently_task_app/core/constants/categories_constant.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
 import 'package:evently_task_app/models/category_model.dart';
 import 'package:evently_task_app/modules/sub_modules/home/models/event_model.dart';
@@ -97,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
 
                 DefaultTabController(
-                  length: CategoriesConstant.categories.length,
+                  length: CategoryModel.categories.length,
                   child: TabBar(
                     onTap: (value) {
                       setState(() {
@@ -110,7 +109,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     dividerColor: Colors.transparent,
                     labelPadding: EdgeInsets.zero,
                     tabs: CategoryModel.categories.map((data) {
-                      currentCategoryIndex;
                       return TabItemWidget(
                         category: data,
                         isActive:
