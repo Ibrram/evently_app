@@ -1,10 +1,8 @@
 import 'package:evently_task_app/core/constants/app_assets.dart';
-import 'package:evently_task_app/core/constants/categories_constant.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
 import 'package:evently_task_app/core/widgets/custom_button.dart';
 import 'package:evently_task_app/core/widgets/custom_text_form_field.dart';
-import 'package:evently_task_app/models/event_model.dart';
-import 'package:evently_task_app/utils/firebase_firestore_util.dart';
+import 'package:evently_task_app/models/category_model.dart';
 import 'package:evently_task_app/widgets/tab_item_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -16,21 +14,20 @@ class CreateEventScreen extends StatefulWidget {
 }
 
 class _CreateEventScreenState extends State<CreateEventScreen> {
-  var _currentEventBackground = "";
   int _currentCategoryIndex = 0;
-  String category = "", name = "", description = "";
-  @override
-  void initState() {
-    super.initState();
-    _currentEventBackground = getImagePathByCategoryName(
-      CategoriesConstant.categories[0].name,
-    );
-    category = CategoriesConstant.categories[_currentCategoryIndex].name;
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _currentEventBackground = getImagePathByCategoryName(
+  //     CategoriesConstant.categories[0].name,
+  //   );
+  //   category = CategoriesConstant.categories[_currentCategoryIndex].name;
+  // }
 
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    CategoryModel category = CategoryModel.categories[_currentCategoryIndex];
 
     return Scaffold(
       appBar: AppBar(
@@ -45,13 +42,13 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.asset(_currentEventBackground),
+                child: Image.asset(category.backgroundImage),
               ),
 
               const SizedBox(height: 16),
 
               DefaultTabController(
-                length: CategoriesConstant.categories.length,
+                length: CategoryModel.categories.length,
                 child: TabBar(
                   dividerColor: Colors.transparent,
                   indicatorColor: Colors.transparent,
@@ -61,21 +58,13 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                   onTap: (value) {
                     setState(() {
                       _currentCategoryIndex = value;
-                      _currentEventBackground = getImagePathByCategoryName(
-                        CategoriesConstant
-                            .categories[_currentCategoryIndex]
-                            .name,
-                      );
-                      category = CategoriesConstant
-                          .categories[_currentCategoryIndex]
-                          .name;
                     });
                   },
-                  tabs: CategoriesConstant.categories.map((data) {
+                  tabs: CategoryModel.categories.map((data) {
                     return TabItemWidget(
                       category: data,
                       isActive:
-                          CategoriesConstant.categories.indexOf(data) ==
+                          CategoryModel.categories.indexOf(data) ==
                           _currentCategoryIndex,
                       isEventPage: true,
                     );
@@ -91,10 +80,9 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                 ),
               ),
               const SizedBox(height: 8),
-              CustomTextFormField(
+              const CustomTextFormField(
                 hintText: 'Event Title',
-                onChanged: (val) => name = val,
-                prefixWidget: const Padding(
+                prefixWidget: Padding(
                   padding: EdgeInsets.all(12.0),
                   child: ImageIcon(
                     AssetImage(AppAssets.noteEdit),
@@ -110,9 +98,8 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                 ),
               ),
               const SizedBox(height: 8),
-              CustomTextFormField(
+              const CustomTextFormField(
                 hintText: 'Event Description',
-                onChanged: (val) => description = val,
                 maxLine: 10,
                 textInputType: TextInputType.multiline,
                 minLine: 6,
@@ -231,16 +218,20 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
 
               CustomButton(
                 onPressed: () {
-                  FirebaseFirestoreUtil.createEvent(
-                    EventModel(
-                      id: '0',
-                      name: name,
-                      category: category,
-                      description: description,
-                      isFavourite: false,
-                    ),
-                    context,
-                  );
+                  // EasyLoading.show(
+                  //   maskType: EasyLoadingMaskType.black,
+                  //   status: 'Success',
+                  // );
+                  // FirebaseFirestoreUtil.createEvent(
+                  //   EventModel(
+                  //     id: '0',
+                  //     name: name,
+                  //     category: category,
+                  //     description: description,
+                  //     isFavourite: false,
+                  //   ),
+                  //   context,
+                  // );
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
@@ -252,30 +243,5 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
         ),
       ),
     );
-  }
-
-  String getImagePathByCategoryName(String categoryName) {
-    switch (categoryName) {
-      case 'Sport':
-        return AppAssets.sportEventBackground;
-      case 'Birthday':
-        return AppAssets.birthDayEventBackground;
-      case 'Book Club':
-        return AppAssets.bookClubEventBackground;
-      case 'Meeting':
-        return AppAssets.meetingEventBackground;
-      case 'Gaming':
-        return AppAssets.gamingEventBackground;
-      case 'Holiday':
-        return AppAssets.holidayEventBackground;
-      case 'Eating':
-        return AppAssets.eatingEventBackground;
-      case 'Work Shop':
-        return AppAssets.workShopEventBackground;
-      case 'Exhibition':
-        return AppAssets.exhibitionEventBackground;
-      default:
-        return AppAssets.sportEventBackground;
-    }
   }
 }

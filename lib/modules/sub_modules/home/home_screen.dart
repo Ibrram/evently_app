@@ -1,6 +1,7 @@
 import 'package:evently_task_app/core/constants/app_assets.dart';
 import 'package:evently_task_app/core/constants/categories_constant.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
+import 'package:evently_task_app/models/category_model.dart';
 import 'package:evently_task_app/modules/sub_modules/home/models/event_model.dart';
 import 'package:evently_task_app/modules/sub_modules/home/widgets/event_card_widget.dart';
 import 'package:evently_task_app/widgets/tab_item_widget.dart';
@@ -108,12 +109,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     tabAlignment: TabAlignment.start,
                     dividerColor: Colors.transparent,
                     labelPadding: EdgeInsets.zero,
-                    tabs: CategoriesConstant.categories.map((data) {
+                    tabs: CategoryModel.categories.map((data) {
                       currentCategoryIndex;
                       return TabItemWidget(
                         category: data,
                         isActive:
-                            CategoriesConstant.categories.indexOf(data) ==
+                            CategoryModel.categories.indexOf(data) ==
                             currentCategoryIndex,
                       );
                     }).toList(),
