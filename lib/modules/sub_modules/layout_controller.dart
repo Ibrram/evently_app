@@ -2,8 +2,6 @@ import 'package:evently_task_app/core/constants/app_assets.dart';
 import 'package:evently_task_app/core/constants/layout_screens.dart';
 import 'package:evently_task_app/core/routes/routes_name.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
-// import 'package:evently_task_app/models/event_model.dart';
-// import 'package:evently_task_app/utils/firebase_firestore_util.dart';
 import 'package:flutter/material.dart';
 
 class LayoutController extends StatefulWidget {

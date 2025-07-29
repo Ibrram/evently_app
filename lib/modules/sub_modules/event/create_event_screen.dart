@@ -281,7 +281,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                         title:
                             '${nameController.text} Event Created Successfully',
                       );
-                      Navigator.pop(context);
+                      Navigator.pop(context, true);
                     } else {
                       Toast.showErrorToast(
                         title: 'Cannot Create Events now try again Later!',

@@ -1,5 +1,5 @@
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
-import 'package:evently_task_app/modules/sub_modules/home/models/event_model.dart';
+import 'package:evently_task_app/models/event_model.dart';
 import 'package:flutter/material.dart';
 
 class EventCardWidget extends StatelessWidget {
@@ -50,13 +50,7 @@ class EventCardWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              Icon(
-                (EventModel.events.indexOf(event) % 2) == 0
-                    ? Icons.favorite_border
-                    : Icons.favorite_outlined,
-                color: theme.primaryColor,
-                size: 24,
-              ),
+              Icon(Icons.favorite_border, color: theme.primaryColor, size: 24),
             ],
           ),
         ),

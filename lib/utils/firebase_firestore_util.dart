@@ -22,4 +22,13 @@ abstract class FirebaseFirestoreUtil {
       return false;
     }
   }
+
+  static Future<List<EventModel>> getEvents() async {
+    var reference = _getCollectionReference();
+    var snapshot = await reference.get();
+
+    return snapshot.docs.map((doc) {
+      return doc.data();
+    }).toList();
+  }
 }

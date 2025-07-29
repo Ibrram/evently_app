@@ -1,8 +1,9 @@
 import 'package:evently_task_app/core/constants/app_assets.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
 import 'package:evently_task_app/models/category_model.dart';
-import 'package:evently_task_app/modules/sub_modules/home/models/event_model.dart';
+import 'package:evently_task_app/models/event_model.dart';
 import 'package:evently_task_app/modules/sub_modules/home/widgets/event_card_widget.dart';
+import 'package:evently_task_app/utils/firebase_firestore_util.dart';
 import 'package:evently_task_app/widgets/tab_item_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentCategoryIndex = 0;
+  List<EventModel> events = [];
+  @override
+  void initState() {
+    super.initState();
+    getEvents();
+  }
+
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
@@ -124,11 +132,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Expanded(
           child: ListView.builder(
-            itemCount: EventModel.events.length,
+            itemCount: events.length,
             shrinkWrap: true,
             padding: const EdgeInsets.only(top: 16),
             itemBuilder: (context, index) {
-              EventModel currentEvent = EventModel.events[index];
+              EventModel currentEvent = events[index];
               return Container(
                 height: MediaQuery.of(context).size.height * 0.241,
                 margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
@@ -137,7 +145,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   border: Border.all(color: theme.primaryColor),
                   image: DecorationImage(
                     image: AssetImage(
-                      'assets/images/events_background/${currentEvent.category}.png',
+                      CategoryModel
+                          .categories[currentEvent.categoryId]
+                          .backgroundImage,
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -149,5 +159,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ],
     );
+  }
+
+  Future<void> getEvents() async {
+    await FirebaseFirestoreUtil.getEvents().then((value) {
+      setState(() {
+        events = value;
+      });
+    });
   }
 }
