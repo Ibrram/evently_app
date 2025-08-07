@@ -25,6 +25,12 @@ abstract class AppThemeManager {
       unselectedItemColor: Colors.white,
     ),
     textTheme: const TextTheme(
+      titleLarge: TextStyle(
+        fontFamily: 'Inter',
+        fontWeight: FontWeight.w700,
+        fontSize: 24,
+        color: Colors.white,
+      ),
       bodyLarge: TextStyle(
         fontFamily: 'Inter',
         fontWeight: FontWeight.w500,

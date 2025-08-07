@@ -7,11 +7,13 @@ class CustomButton extends StatelessWidget {
     this.child,
     this.backgroundColor,
     this.onPressed,
+    this.borderColor = ColorPalette.primaryColor,
   });
 
   final Widget? child;
   final void Function()? onPressed;
   final Color? backgroundColor;
+  final Color borderColor;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -23,7 +25,7 @@ class CustomButton extends StatelessWidget {
         padding: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
-          side: const BorderSide(color: ColorPalette.primaryColor),
+          side: BorderSide(color: borderColor),
         ),
       ),
       child: child,
