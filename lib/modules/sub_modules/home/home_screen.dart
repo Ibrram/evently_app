@@ -16,11 +16,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentCategoryIndex = 0;
-  List<EventModel> events = [];
   @override
   void initState() {
     super.initState();
-    getEvents();
   }
 
   @override
@@ -131,41 +129,51 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         Expanded(
-          child: ListView.builder(
-            itemCount: events.length,
-            shrinkWrap: true,
-            padding: const EdgeInsets.only(top: 16),
-            itemBuilder: (context, index) {
-              EventModel currentEvent = events[index];
-              return Container(
-                height: MediaQuery.of(context).size.height * 0.241,
-                margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: theme.primaryColor),
-                  image: DecorationImage(
-                    image: AssetImage(
-                      CategoryModel
-                          .categories[currentEvent.categoryId]
-                          .backgroundImage,
+          child: StreamBuilder<List<EventModel>>(
+            stream: FirebaseFirestoreUtil.getEventsStream(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              }
+
+              // if (snapshot.hasError) {
+              //   return ;
+              // }
+
+              List<EventModel> events = snapshot.data!;
+
+              return ListView.builder(
+                itemCount: events.length,
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(top: 16),
+                itemBuilder: (context, index) {
+                  EventModel currentEvent = events[index];
+                  return Container(
+                    height: MediaQuery.of(context).size.height * 0.241,
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 7,
                     ),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: EventCardWidget(event: currentEvent),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: Theme.of(context).primaryColor),
+                      image: DecorationImage(
+                        image: AssetImage(
+                          CategoryModel
+                              .categories[currentEvent.categoryId]
+                              .backgroundImage,
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    child: EventCardWidget(event: currentEvent),
+                  );
+                },
               );
             },
           ),
         ),
       ],
     );
-  }
-
-  Future<void> getEvents() async {
-    await FirebaseFirestoreUtil.getEvents().then((value) {
-      setState(() {
-        events = value;
-      });
-    });
   }
 }
