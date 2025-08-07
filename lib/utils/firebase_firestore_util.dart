@@ -23,8 +23,11 @@ abstract class FirebaseFirestoreUtil {
     }
   }
 
-  static Stream<List<EventModel>> getEventsStream() {
-    var reference = _getCollectionReference();
+  static Stream<List<EventModel>> getEventsStream({required int catId}) {
+    var reference = _getCollectionReference().where(
+      "categoryId",
+      isEqualTo: catId,
+    );
 
     return reference.snapshots().map((snapshot) {
       return snapshot.docs.map((doc) {

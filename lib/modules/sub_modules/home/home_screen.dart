@@ -130,7 +130,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Expanded(
           child: StreamBuilder<List<EventModel>>(
-            stream: FirebaseFirestoreUtil.getEventsStream(),
+            stream: FirebaseFirestoreUtil.getEventsStream(
+              catId: currentCategoryIndex,
+            ),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator());
