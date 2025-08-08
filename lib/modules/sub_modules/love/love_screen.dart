@@ -1,3 +1,8 @@
+import 'package:evently_task_app/core/widgets/custom_text_form_field.dart';
+import 'package:evently_task_app/models/category_model.dart';
+import 'package:evently_task_app/models/event_model.dart';
+import 'package:evently_task_app/modules/sub_modules/home/widgets/event_card_widget.dart';
+import 'package:evently_task_app/utils/firebase_firestore_util.dart';
 import 'package:flutter/material.dart';
 
 class LoveScreen extends StatelessWidget {
@@ -5,14 +10,71 @@ class LoveScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Love Screen',
-        style: TextStyle(
-          color: Colors.amber,
-          fontSize: 50,
-          fontWeight: FontWeight.bold,
-        ),
+    var theme = Theme.of(context);
+    return SafeArea(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 32, left: 16, right: 16),
+            child: CustomTextFormField(
+              hintText: 'Search for Event',
+              hintColor: theme.primaryColor,
+              prefixWidget: Icon(
+                Icons.search,
+                size: 24,
+                color: theme.primaryColor,
+              ),
+            ),
+          ),
+
+          Expanded(
+            child: StreamBuilder<List<EventModel>>(
+              stream: FirebaseFirestoreUtil.getFavEventsStream(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+
+                // if (snapshot.hasError) {
+                //   return ;
+                // }
+
+                List<EventModel> events = snapshot.data!;
+
+                return ListView.builder(
+                  itemCount: events.length,
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.only(top: 16),
+                  itemBuilder: (context, index) {
+                    EventModel currentEvent = events[index];
+                    return Container(
+                      height: MediaQuery.of(context).size.height * 0.241,
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        image: DecorationImage(
+                          image: AssetImage(
+                            CategoryModel
+                                .categories[currentEvent.categoryId]
+                                .backgroundImage,
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: EventCardWidget(event: currentEvent),
+                    );
+                  },
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

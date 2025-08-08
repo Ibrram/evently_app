@@ -40,4 +40,17 @@ abstract class FirebaseFirestoreUtil {
     var collectionRef = _getCollectionReference().doc(event.id);
     return collectionRef.update({"isFavourite": !event.isFavourite!});
   }
+
+  static Stream<List<EventModel>> getFavEventsStream() {
+    var reference = _getCollectionReference().where(
+      "isFavourite",
+      isEqualTo: true,
+    );
+
+    return reference.snapshots().map((snapshot) {
+      return snapshot.docs.map((doc) {
+        return doc.data();
+      }).toList();
+    });
+  }
 }

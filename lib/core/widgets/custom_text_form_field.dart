@@ -7,6 +7,7 @@ class CustomTextFormField extends StatefulWidget {
     this.prefixWidget,
     this.prefixColor,
     this.hintText,
+    this.hintColor,
     this.controller,
     this.isPassword = false,
     this.onChanged,
@@ -23,6 +24,7 @@ class CustomTextFormField extends StatefulWidget {
   final bool isPassword;
   final int? maxLine;
   final int? minLine;
+  final Color? hintColor;
   final TextEditingController? controller;
   final void Function(String)? onChanged;
   final void Function(String)? onFieldSubmitted;
@@ -54,28 +56,31 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       decoration: InputDecoration(
         hintText: widget.hintText,
         hintStyle: theme.textTheme.bodyMedium?.copyWith(
-          color: ColorPalette.textFormHintTextColor,
+          color: widget.hintColor ?? ColorPalette.textFormHintTextColor,
+          fontWeight: (widget.hintColor == null)
+              ? FontWeight.w400
+              : FontWeight.w700,
         ),
         prefixIcon: widget.prefixWidget,
         prefixIconColor: widget.prefixColor,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(
-            color: ColorPalette.textFormBorderColor,
+          borderSide: BorderSide(
+            color: widget.hintColor ?? ColorPalette.textFormBorderColor,
             width: 1,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(
-            color: ColorPalette.textFormBorderColor,
+          borderSide: BorderSide(
+            color: widget.hintColor ?? ColorPalette.textFormBorderColor,
             width: 1,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(
-            color: ColorPalette.textFormBorderColor,
+          borderSide: BorderSide(
+            color: widget.hintColor ?? ColorPalette.textFormBorderColor,
             width: 1,
           ),
         ),
