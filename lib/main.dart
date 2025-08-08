@@ -7,6 +7,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'firebase_options.dart';
 //
+// import 'package:flutter_localizations/flutter_localizations.dart';
+import 'l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -26,6 +28,9 @@ class MainApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       initialRoute: RoutesName.initial,
       onGenerateRoute: AppRoutes.onGenerateRoutes,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: const Locale('en'),
       debugShowCheckedModeBanner: false,
       builder: EasyLoading.init(builder: BotToastInit()),
     );

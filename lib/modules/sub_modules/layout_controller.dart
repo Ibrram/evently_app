@@ -2,6 +2,7 @@ import 'package:evently_task_app/core/constants/app_assets.dart';
 import 'package:evently_task_app/core/constants/layout_screens.dart';
 import 'package:evently_task_app/core/routes/routes_name.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
+import 'package:evently_task_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class LayoutController extends StatefulWidget {
@@ -17,6 +18,7 @@ class _LayoutControllerState extends State<LayoutController> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    var lang = AppLocalizations.of(context)!;
     return Scaffold(
       extendBodyBehindAppBar: true,
       floatingActionButton: FloatingActionButton(
@@ -52,28 +54,28 @@ class _LayoutControllerState extends State<LayoutController> {
         },
         currentIndex: currentIndex,
         items: [
-          const BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(AppAssets.homeIcon)),
-            activeIcon: ImageIcon(AssetImage(AppAssets.homeFillIcon)),
-            label: 'Home',
+          BottomNavigationBarItem(
+            icon: const ImageIcon(AssetImage(AppAssets.homeIcon)),
+            activeIcon: const ImageIcon(AssetImage(AppAssets.homeFillIcon)),
+            label: lang.home,
           ),
 
-          const BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(AppAssets.mapIcon)),
-            activeIcon: ImageIcon(AssetImage(AppAssets.mapFillIcon)),
-            label: 'Map',
+          BottomNavigationBarItem(
+            icon: const ImageIcon(AssetImage(AppAssets.mapIcon)),
+            activeIcon: const ImageIcon(AssetImage(AppAssets.mapFillIcon)),
+            label: lang.map,
           ),
 
-          const BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(AppAssets.favIcon)),
-            activeIcon: ImageIcon(AssetImage(AppAssets.favFillIcon)),
-            label: 'Love',
+          BottomNavigationBarItem(
+            icon: const ImageIcon(AssetImage(AppAssets.favIcon)),
+            activeIcon: const ImageIcon(AssetImage(AppAssets.favFillIcon)),
+            label: lang.love,
           ),
 
-          const BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(AppAssets.profileIcon)),
-            activeIcon: ImageIcon(AssetImage(AppAssets.profileFillIcon)),
-            label: 'Profile',
+          BottomNavigationBarItem(
+            icon: const ImageIcon(AssetImage(AppAssets.profileIcon)),
+            activeIcon: const ImageIcon(AssetImage(AppAssets.profileFillIcon)),
+            label: lang.profile,
           ),
         ],
       ),
