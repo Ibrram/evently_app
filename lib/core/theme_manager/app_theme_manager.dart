@@ -9,6 +9,7 @@ abstract class AppThemeManager {
       // elevation: 0.0,
       foregroundColor: ColorPalette.primaryColor,
       centerTitle: true,
+      actionsPadding: EdgeInsets.symmetric(horizontal: 10),
       titleTextStyle: TextStyle(
         fontSize: 22,
         color: ColorPalette.primaryColor,

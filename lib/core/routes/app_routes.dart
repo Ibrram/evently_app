@@ -1,9 +1,11 @@
 import 'package:evently_task_app/core/routes/routes_name.dart';
+import 'package:evently_task_app/models/event_model.dart';
 import 'package:evently_task_app/modules/authentication/screens/forget_password_screen.dart';
 import 'package:evently_task_app/modules/authentication/screens/login_screen.dart';
 import 'package:evently_task_app/modules/authentication/screens/register_screen.dart';
 import 'package:evently_task_app/modules/splash/splash_screen.dart';
 import 'package:evently_task_app/modules/sub_modules/event/create_event_screen.dart';
+import 'package:evently_task_app/modules/sub_modules/event/view_event_screen.dart';
 import 'package:evently_task_app/modules/sub_modules/layout_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -43,6 +45,12 @@ abstract class AppRoutes {
       case RoutesName.createEvent:
         return MaterialPageRoute(
           builder: (context) => const CreateEventScreen(),
+          settings: settings,
+        );
+      case RoutesName.viewEvent:
+        final event = settings.arguments as EventModel;
+        return MaterialPageRoute(
+          builder: (context) => ViewEventScreen(event: event),
           settings: settings,
         );
       //
