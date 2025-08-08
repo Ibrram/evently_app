@@ -1,11 +1,17 @@
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
 import 'package:evently_task_app/models/event_model.dart';
+import 'package:evently_task_app/utils/firebase_firestore_util.dart';
 import 'package:flutter/material.dart';
 
-class EventCardWidget extends StatelessWidget {
+class EventCardWidget extends StatefulWidget {
   const EventCardWidget({super.key, required this.event});
   final EventModel event;
 
+  @override
+  State<EventCardWidget> createState() => _EventCardWidgetState();
+}
+
+class _EventCardWidgetState extends State<EventCardWidget> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
@@ -21,7 +27,7 @@ class EventCardWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           ),
           child: Text(
-            event.date,
+            widget.event.date,
             textAlign: TextAlign.center,
             style: theme.textTheme.bodyMedium?.copyWith(
               color: theme.primaryColor,
@@ -42,7 +48,7 @@ class EventCardWidget extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  event.name,
+                  widget.event.name,
                   textAlign: TextAlign.start,
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: ColorPalette.blackTextColor,
@@ -50,7 +56,25 @@ class EventCardWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              Icon(Icons.favorite_border, color: theme.primaryColor, size: 24),
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    FirebaseFirestoreUtil.updateEvent(event: widget.event);
+                  });
+                },
+                constraints: const BoxConstraints(),
+                style: IconButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                icon: Icon(
+                  widget.event.isFavourite!
+                      ? Icons.favorite
+                      : Icons.favorite_border,
+                  color: theme.primaryColor,
+                  size: 24,
+                ),
+              ),
             ],
           ),
         ),

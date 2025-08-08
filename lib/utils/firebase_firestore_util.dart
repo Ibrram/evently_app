@@ -35,4 +35,9 @@ abstract class FirebaseFirestoreUtil {
       }).toList();
     });
   }
+
+  static Future<void> updateEvent({required EventModel event}) {
+    var collectionRef = _getCollectionReference().doc(event.id);
+    return collectionRef.update({"isFavourite": !event.isFavourite!});
+  }
 }
