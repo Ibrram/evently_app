@@ -2,6 +2,7 @@ import 'package:evently_task_app/core/constants/app_assets.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
 import 'package:evently_task_app/core/widgets/custom_button.dart';
 import 'package:evently_task_app/core/widgets/custom_text_form_field.dart';
+import 'package:evently_task_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -10,10 +11,11 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    var lang = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Register',
+          lang.register_account,
           style: theme.textTheme.bodyLarge?.copyWith(
             fontWeight: FontWeight.w400,
             color: ColorPalette.blackTextColor,
@@ -33,32 +35,32 @@ class RegisterScreen extends StatelessWidget {
               children: [
                 Image.asset(AppAssets.logoV, height: 185),
                 const SizedBox(height: 8),
-                const CustomTextFormField(
-                  hintText: 'Name',
-                  prefixWidget: ImageIcon(
+                CustomTextFormField(
+                  hintText: lang.name,
+                  prefixWidget: const ImageIcon(
                     AssetImage(AppAssets.userIcon),
                     color: ColorPalette.textFormBorderColor,
                   ),
                 ),
-                const CustomTextFormField(
-                  hintText: 'Email',
-                  prefixWidget: ImageIcon(
+                CustomTextFormField(
+                  hintText: lang.email,
+                  prefixWidget: const ImageIcon(
                     AssetImage(AppAssets.emailIcon),
                     color: ColorPalette.textFormBorderColor,
                   ),
                 ),
-                const CustomTextFormField(
+                CustomTextFormField(
                   isPassword: true,
-                  hintText: 'Password',
-                  prefixWidget: ImageIcon(
+                  hintText: lang.password,
+                  prefixWidget: const ImageIcon(
                     AssetImage(AppAssets.passwordIcon),
                     color: ColorPalette.textFormBorderColor,
                   ),
                 ),
-                const CustomTextFormField(
+                CustomTextFormField(
                   isPassword: true,
-                  hintText: 'Re Password',
-                  prefixWidget: ImageIcon(
+                  hintText: lang.re_password,
+                  prefixWidget: const ImageIcon(
                     AssetImage(AppAssets.passwordIcon),
                     color: ColorPalette.textFormBorderColor,
                   ),
@@ -67,14 +69,18 @@ class RegisterScreen extends StatelessWidget {
                   onPressed: () {},
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: Text('Register', style: theme.textTheme.bodyLarge),
+                    child: Text(
+                      lang.register,
+                      style: theme.textTheme.bodyLarge,
+                    ),
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  spacing: 4,
                   children: [
                     Text(
-                      'Already Have Account?',
+                      lang.already_have_account,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         color: ColorPalette.blackTextColor,
                       ),
@@ -88,7 +94,7 @@ class RegisterScreen extends StatelessWidget {
                         minimumSize: Size.zero,
                       ),
                       child: Text(
-                        'Login',
+                        lang.login,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: ColorPalette.primaryColor,
                           decoration: TextDecoration.underline,

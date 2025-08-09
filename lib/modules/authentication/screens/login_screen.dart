@@ -3,6 +3,7 @@ import 'package:evently_task_app/core/routes/routes_name.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
 import 'package:evently_task_app/core/widgets/custom_button.dart';
 import 'package:evently_task_app/core/widgets/custom_text_form_field.dart';
+import 'package:evently_task_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -11,6 +12,8 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    var lang = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -25,9 +28,9 @@ class LoginScreen extends StatelessWidget {
 
                   const SizedBox(height: 24),
 
-                  const CustomTextFormField(
-                    hintText: 'Email',
-                    prefixWidget: ImageIcon(
+                  CustomTextFormField(
+                    hintText: lang.email,
+                    prefixWidget: const ImageIcon(
                       AssetImage(AppAssets.emailIcon),
                       color: ColorPalette.textFormBorderColor,
                     ),
@@ -35,10 +38,10 @@ class LoginScreen extends StatelessWidget {
 
                   const SizedBox(height: 16),
 
-                  const CustomTextFormField(
-                    hintText: 'Password',
+                  CustomTextFormField(
+                    hintText: lang.password,
                     isPassword: true,
-                    prefixWidget: ImageIcon(
+                    prefixWidget: const ImageIcon(
                       AssetImage(AppAssets.passwordIcon),
                       color: ColorPalette.textFormBorderColor,
                     ),
@@ -53,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                         Navigator.pushNamed(context, RoutesName.forgetPassword);
                       },
                       child: Text(
-                        'Forget Password?',
+                        lang.forget_password,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: ColorPalette.primaryColor,
                           fontWeight: FontWeight.w700,
@@ -74,7 +77,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: Text('Login', style: theme.textTheme.bodyLarge),
+                      child: Text(lang.login, style: theme.textTheme.bodyLarge),
                     ),
                   ),
 
@@ -82,9 +85,10 @@ class LoginScreen extends StatelessWidget {
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 4,
                     children: [
                       Text(
-                        'Don’t Have Account?',
+                        lang.dont_have_account,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: ColorPalette.blackTextColor,
                         ),
@@ -97,7 +101,7 @@ class LoginScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(4),
                         ),
                         child: Text(
-                          'Create Account',
+                          lang.create_account,
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: ColorPalette.primaryColor,
                             decoration: TextDecoration.underline,
@@ -122,7 +126,7 @@ class LoginScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Text(
-                            'OR',
+                            lang.or,
                             style: theme.textTheme.bodyMedium?.copyWith(
                               color: ColorPalette.primaryColor,
                             ),
@@ -146,7 +150,7 @@ class LoginScreen extends StatelessWidget {
                         children: [
                           Image.asset(AppAssets.googleIcon),
                           Text(
-                            'Login with Google',
+                            lang.login_with_google,
                             style: theme.textTheme.bodyLarge?.copyWith(
                               color: ColorPalette.primaryColor,
                             ),

@@ -98,6 +98,12 @@ abstract class AppLocalizations {
     Locale('en'),
   ];
 
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
   /// No description provided for @email.
   ///
   /// In en, this message translates to:
@@ -110,17 +116,35 @@ abstract class AppLocalizations {
   /// **'Password'**
   String get password;
 
+  /// No description provided for @re_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Re-Enter Password'**
+  String get re_password;
+
   /// No description provided for @forget_password.
   ///
   /// In en, this message translates to:
   /// **'Forget Password'**
   String get forget_password;
 
+  /// No description provided for @reset_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get reset_password;
+
   /// No description provided for @login.
   ///
   /// In en, this message translates to:
   /// **'Login'**
   String get login;
+
+  /// No description provided for @register.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register;
 
   /// No description provided for @dont_have_account.
   ///
@@ -133,6 +157,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Create Account'**
   String get create_account;
+
+  /// No description provided for @already_have_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Already Have Account?'**
+  String get already_have_account;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'OR'**
+  String get or;
+
+  /// No description provided for @login_with_google.
+  ///
+  /// In en, this message translates to:
+  /// **'Login with Google'**
+  String get login_with_google;
+
+  /// No description provided for @register_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register_account;
 
   /// No description provided for @home.
   ///

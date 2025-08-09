@@ -9,22 +9,46 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get email => 'لبريد الالكتروني';
+  String get name => 'الاسم';
+
+  @override
+  String get email => 'البريد الالكتروني';
 
   @override
   String get password => 'كلمة المرور';
 
   @override
+  String get re_password => 'اعد كتابة كلمة المرور';
+
+  @override
   String get forget_password => 'نسيت كلمة المرور';
 
   @override
+  String get reset_password => 'نسيت كلمة المرور';
+
+  @override
   String get login => 'تسجيل الدخول';
+
+  @override
+  String get register => 'التسجيل';
 
   @override
   String get dont_have_account => 'ليس لديك حساب؟';
 
   @override
   String get create_account => 'انشاء حساب';
+
+  @override
+  String get already_have_account => 'لديك حساب بالفعل؟';
+
+  @override
+  String get or => 'أو';
+
+  @override
+  String get login_with_google => 'تسجيل الدخول عبر جوجل';
+
+  @override
+  String get register_account => 'انشاء حساب';
 
   @override
   String get home => 'الرئيسية';

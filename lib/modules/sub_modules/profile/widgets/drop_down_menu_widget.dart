@@ -1,4 +1,6 @@
+import 'package:evently_task_app/providers/app_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DropDownMenuWidget extends StatefulWidget {
   const DropDownMenuWidget({
@@ -15,10 +17,13 @@ class DropDownMenuWidget extends StatefulWidget {
 
 class _DropDownMenuWidgetState extends State<DropDownMenuWidget> {
   String? selected;
+  late AppProvider provider;
   @override
   void initState() {
     super.initState();
-    selected = widget.items.first.value;
+    provider = Provider.of<AppProvider>(context, listen: false);
+
+    selected = widget.items.last.value;
   }
 
   @override
@@ -44,6 +49,7 @@ class _DropDownMenuWidgetState extends State<DropDownMenuWidget> {
             setState(() {
               selected = value;
             });
+            provider.setLocale(value);
           },
         ),
       ),
