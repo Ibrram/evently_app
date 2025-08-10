@@ -109,5 +109,13 @@
     "event_details_screen_appbar_title": "بيانات الايفنت",
     "@event_details_screen_appbar_title": {},
     "event_search_title": "ابحث عن ايفنت",
-    "@event_search_title": {}
+    "@event_search_title": {},
+    "event_sheet_confirm_delete_header": "متأكد من حذفك للايفنت؟",
+    "@event_sheet_confirm_delete_header": {},
+    "event_sheet_confirm_delete_cancel_text": "لا, رجوع",
+    "@event_sheet_confirm_delete_cancel_text": {},
+    "event_sheet_confirm_delete_text": "احذف",
+    "@event_sheet_confirm_delete_text": {},
+    "event_sheet_confirm_toast_success": "تم الحذف بنجاح",
+    "@event_sheet_confirm_toast_success": {}
 }

@@ -427,6 +427,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search for Event'**
   String get event_search_title;
+
+  /// No description provided for @event_sheet_confirm_delete_header.
+  ///
+  /// In en, this message translates to:
+  /// **'Sure wanna Delete this Event?'**
+  String get event_sheet_confirm_delete_header;
+
+  /// No description provided for @event_sheet_confirm_delete_cancel_text.
+  ///
+  /// In en, this message translates to:
+  /// **'No, Cancel'**
+  String get event_sheet_confirm_delete_cancel_text;
+
+  /// No description provided for @event_sheet_confirm_delete_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get event_sheet_confirm_delete_text;
+
+  /// No description provided for @event_sheet_confirm_toast_success.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted Successfully'**
+  String get event_sheet_confirm_toast_success;
 }
 
 class _AppLocalizationsDelegate

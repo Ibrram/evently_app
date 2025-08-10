@@ -174,4 +174,17 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get event_search_title => 'Search for Event';
+
+  @override
+  String get event_sheet_confirm_delete_header =>
+      'Sure wanna Delete this Event?';
+
+  @override
+  String get event_sheet_confirm_delete_cancel_text => 'No, Cancel';
+
+  @override
+  String get event_sheet_confirm_delete_text => 'Delete';
+
+  @override
+  String get event_sheet_confirm_toast_success => 'Deleted Successfully';
 }

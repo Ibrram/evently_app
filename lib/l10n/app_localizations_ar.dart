@@ -173,4 +173,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get event_search_title => 'ابحث عن ايفنت';
+
+  @override
+  String get event_sheet_confirm_delete_header => 'متأكد من حذفك للايفنت؟';
+
+  @override
+  String get event_sheet_confirm_delete_cancel_text => 'لا, رجوع';
+
+  @override
+  String get event_sheet_confirm_delete_text => 'احذف';
+
+  @override
+  String get event_sheet_confirm_toast_success => 'تم الحذف بنجاح';
 }

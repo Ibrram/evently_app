@@ -1,9 +1,12 @@
 import 'package:evently_task_app/core/constants/app_assets.dart';
+import 'package:evently_task_app/core/routes/routes_name.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
 import 'package:evently_task_app/core/widgets/custom_button.dart';
 import 'package:evently_task_app/l10n/app_localizations.dart';
 import 'package:evently_task_app/models/category_model.dart';
 import 'package:evently_task_app/models/event_model.dart';
+import 'package:evently_task_app/utils/firebase_firestore_util.dart';
+import 'package:evently_task_app/utils/toast.dart';
 import 'package:flutter/material.dart';
 
 class ViewEventScreen extends StatelessWidget {
@@ -67,10 +70,89 @@ class ViewEventScreen extends StatelessWidget {
         actions: [
           Icon(Icons.mode_edit_outlined, size: 24, color: theme.primaryColor),
           const SizedBox(width: 10),
-          const Icon(
-            Icons.delete_outline,
-            size: 24,
-            color: ColorPalette.textFormBorderErrorColor,
+          IconButton(
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                backgroundColor: ColorPalette.blackTextColor,
+                isDismissible: false,
+                constraints: BoxConstraints(
+                  maxHeight: MediaQuery.of(context).size.height * 0.2,
+                ),
+                builder: (context) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 16,
+                    children: [
+                      Text(
+                        lang.event_sheet_confirm_delete_header,
+                        style: theme.textTheme.bodyLarge,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 20,
+                        children: [
+                          CustomButton(
+                            backgroundColor: theme.primaryColor,
+                            borderColor: Colors.transparent,
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 8,
+                                horizontal: 32,
+                              ),
+                              child: Text(
+                                lang.event_sheet_confirm_delete_cancel_text,
+                                style: theme.textTheme.bodyMedium,
+                              ),
+                            ),
+                          ),
+                          CustomButton(
+                            backgroundColor:
+                                ColorPalette.textFormBorderErrorColor,
+                            borderColor: Colors.transparent,
+                            onPressed: () {
+                              FirebaseFirestoreUtil.deleteEvent(event: event);
+                              Toast.showSuccessToast(
+                                title:
+                                    '${event.name} ${lang.event_sheet_confirm_toast_success}',
+                              );
+                              Navigator.pushReplacementNamed(
+                                context,
+                                RoutesName.layoutController,
+                              );
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 8,
+                                horizontal: 16,
+                              ),
+                              child: Text(
+                                lang.event_sheet_confirm_delete_text,
+                                style: theme.textTheme.bodyMedium,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            constraints: const BoxConstraints(),
+            padding: EdgeInsets.zero,
+            style: IconButton.styleFrom(
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+            icon: const Icon(
+              Icons.delete_outline,
+              size: 24,
+              color: ColorPalette.textFormBorderErrorColor,
+            ),
           ),
         ],
         forceMaterialTransparency: true,

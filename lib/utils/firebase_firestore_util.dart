@@ -41,6 +41,11 @@ abstract class FirebaseFirestoreUtil {
     return collectionRef.update({"isFavourite": !event.isFavourite!});
   }
 
+  static Future<void> deleteEvent({required EventModel event}) {
+    var collectionRef = _getCollectionReference().doc(event.id);
+    return collectionRef.delete();
+  }
+
   static Stream<List<EventModel>> getFavEventsStream() {
     var reference = _getCollectionReference().where(
       "isFavourite",
