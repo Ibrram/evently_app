@@ -164,6 +164,54 @@ abstract class AppLocalizations {
   /// **'Already Have Account?'**
   String get already_have_account;
 
+  /// No description provided for @welcome_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome Back ✨'**
+  String get welcome_title;
+
+  /// No description provided for @language_mode.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language_mode;
+
+  /// No description provided for @language_ar.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic'**
+  String get language_ar;
+
+  /// No description provided for @language_en.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get language_en;
+
+  /// No description provided for @theme_mode.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme_mode;
+
+  /// No description provided for @theme_light.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get theme_light;
+
+  /// No description provided for @theme_dark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get theme_dark;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
+
   /// No description provided for @or.
   ///
   /// In en, this message translates to:
@@ -259,6 +307,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exhibition'**
   String get exhibition;
+
+  /// No description provided for @event_screen_appbar_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Event'**
+  String get event_screen_appbar_title;
+
+  /// No description provided for @event_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get event_title;
+
+  /// No description provided for @event_title_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Title'**
+  String get event_title_hint;
+
+  /// No description provided for @event_name_empty_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Title cannot be empty'**
+  String get event_name_empty_error;
+
+  /// No description provided for @event_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get event_description;
+
+  /// No description provided for @event_description_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Description'**
+  String get event_description_hint;
+
+  /// No description provided for @event_description_empty_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Description cannot be empty \nor less than 20 character'**
+  String get event_description_empty_error;
+
+  /// No description provided for @event_date.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Date'**
+  String get event_date;
+
+  /// No description provided for @event_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Time'**
+  String get event_time;
+
+  /// No description provided for @event_choose_date.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Date'**
+  String get event_choose_date;
+
+  /// No description provided for @event_choose_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Time'**
+  String get event_choose_time;
+
+  /// No description provided for @event_location.
+  ///
+  /// In en, this message translates to:
+  /// **'Location'**
+  String get event_location;
+
+  /// No description provided for @event_location_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Event Location'**
+  String get event_location_text;
+
+  /// No description provided for @event_add_button_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Event'**
+  String get event_add_button_text;
+
+  /// No description provided for @event_toast_date_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of Event cannot be empty'**
+  String get event_toast_date_empty;
+
+  /// No description provided for @event_toast_time_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Time of Event cannot be empty'**
+  String get event_toast_time_empty;
+
+  /// No description provided for @event_toast_create_success.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Created Successfully'**
+  String get event_toast_create_success;
+
+  /// No description provided for @event_toast_create_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Cannot Create Events now try again Later!'**
+  String get event_toast_create_error;
+
+  /// No description provided for @event_details_screen_appbar_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Details'**
+  String get event_details_screen_appbar_title;
+
+  /// No description provided for @event_search_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for Event'**
+  String get event_search_title;
 }
 
 class _AppLocalizationsDelegate

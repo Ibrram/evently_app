@@ -42,6 +42,30 @@ class AppLocalizationsAr extends AppLocalizations {
   String get already_have_account => 'لديك حساب بالفعل؟';
 
   @override
+  String get welcome_title => 'مرحباً ✨';
+
+  @override
+  String get language_mode => 'اللغة';
+
+  @override
+  String get language_ar => 'عربي';
+
+  @override
+  String get language_en => 'انجليزي';
+
+  @override
+  String get theme_mode => 'النمط';
+
+  @override
+  String get theme_light => 'فاتح';
+
+  @override
+  String get theme_dark => 'داكن';
+
+  @override
+  String get logout => 'تسجيل الخروج';
+
+  @override
   String get or => 'أو';
 
   @override
@@ -60,7 +84,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get love => 'المُفضلة';
 
   @override
-  String get profile => 'الصفحة الشخصية';
+  String get profile => 'البروفايل';
 
   @override
   String get sport => 'رياضات';
@@ -88,4 +112,65 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get exhibition => 'معارض';
+
+  @override
+  String get event_screen_appbar_title => 'اضافة ايفنت';
+
+  @override
+  String get event_title => 'الاسم';
+
+  @override
+  String get event_title_hint => 'اسم الايفنت';
+
+  @override
+  String get event_name_empty_error => 'اسم الايفنت مينفعش يكون فاضي';
+
+  @override
+  String get event_description => 'الوصف';
+
+  @override
+  String get event_description_hint => 'وصف الايفنت';
+
+  @override
+  String get event_description_empty_error =>
+      'وصف الايفنت مينفعش يبقي فاضي \nاو ااقل من 20 حرف';
+
+  @override
+  String get event_date => 'يوم الايفنت';
+
+  @override
+  String get event_time => 'وقت الايفنت';
+
+  @override
+  String get event_choose_date => 'اختر التاريخ';
+
+  @override
+  String get event_choose_time => 'اختر الوقت';
+
+  @override
+  String get event_location => 'نقطة الالتقاء';
+
+  @override
+  String get event_location_text => 'اختر نقطة الالتقاء';
+
+  @override
+  String get event_add_button_text => 'اضف الايفنت';
+
+  @override
+  String get event_toast_date_empty => 'تاريخ الايفنت مينفعش يبقي فاضي';
+
+  @override
+  String get event_toast_time_empty => 'معاد الايفنت مينفعش يبقي فاضي';
+
+  @override
+  String get event_toast_create_success => 'تم الانشاء بنجاح';
+
+  @override
+  String get event_toast_create_error => 'حصلت مشكلة حاول مره تانيه لاحقاً!';
+
+  @override
+  String get event_details_screen_appbar_title => 'بيانات الايفنت';
+
+  @override
+  String get event_search_title => 'ابحث عن ايفنت';
 }

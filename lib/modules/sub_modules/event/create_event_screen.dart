@@ -2,6 +2,7 @@ import 'package:evently_task_app/core/constants/app_assets.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
 import 'package:evently_task_app/core/widgets/custom_button.dart';
 import 'package:evently_task_app/core/widgets/custom_text_form_field.dart';
+import 'package:evently_task_app/l10n/app_localizations.dart';
 import 'package:evently_task_app/models/category_model.dart';
 import 'package:evently_task_app/models/event_model.dart';
 import 'package:evently_task_app/utils/firebase_firestore_util.dart';
@@ -37,11 +38,59 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    CategoryModel category = CategoryModel.categories[_currentCategoryIndex];
+    AppLocalizations lang = AppLocalizations.of(context)!;
+    final List<CategoryModel> categories = [
+      CategoryModel(
+        icon: Icons.pedal_bike_outlined,
+        backgroundImage: AppAssets.sportEventBackground,
+        name: lang.sport,
+      ),
+      CategoryModel(
+        icon: Icons.cake_outlined,
+        backgroundImage: AppAssets.birthDayEventBackground,
+        name: lang.birth_day,
+      ),
+      CategoryModel(
+        icon: Icons.menu_book_rounded,
+        backgroundImage: AppAssets.bookClubEventBackground,
+        name: lang.book_club,
+      ),
+      CategoryModel(
+        icon: Icons.video_chat_outlined,
+        backgroundImage: AppAssets.meetingEventBackground,
+        name: lang.meeting,
+      ),
+      CategoryModel(
+        icon: Icons.gamepad_outlined,
+        backgroundImage: AppAssets.gamingEventBackground,
+        name: lang.gaming,
+      ),
+      CategoryModel(
+        icon: Icons.free_cancellation_outlined,
+        backgroundImage: AppAssets.holidayEventBackground,
+        name: lang.holiday,
+      ),
+      CategoryModel(
+        icon: Icons.fastfood_outlined,
+        backgroundImage: AppAssets.eatingEventBackground,
+        name: lang.eating,
+      ),
+      CategoryModel(
+        icon: Icons.workspace_premium_outlined,
+        backgroundImage: AppAssets.workShopEventBackground,
+        name: lang.work_shop,
+      ),
+      CategoryModel(
+        icon: Icons.museum_outlined,
+        backgroundImage: AppAssets.exhibitionEventBackground,
+        name: lang.exhibition,
+      ),
+    ];
+    CategoryModel category = categories[_currentCategoryIndex];
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Create Event'),
+        title: Text(lang.event_screen_appbar_title),
         forceMaterialTransparency: true,
       ),
       body: SingleChildScrollView(
@@ -60,7 +109,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                 const SizedBox(height: 16),
 
                 DefaultTabController(
-                  length: CategoryModel.categories.length,
+                  length: categories.length,
                   child: TabBar(
                     dividerColor: Colors.transparent,
                     indicatorColor: Colors.transparent,
@@ -72,12 +121,11 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                         _currentCategoryIndex = value;
                       });
                     },
-                    tabs: CategoryModel.categories.map((data) {
+                    tabs: categories.map((data) {
                       return TabItemWidget(
                         category: data,
                         isActive:
-                            CategoryModel.categories.indexOf(data) ==
-                            _currentCategoryIndex,
+                            categories.indexOf(data) == _currentCategoryIndex,
                         isEventPage: true,
                       );
                     }).toList(),
@@ -86,18 +134,18 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
 
                 const SizedBox(height: 16),
                 Text(
-                  'Title',
+                  lang.event_title,
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: ColorPalette.blackTextColor,
                   ),
                 ),
                 const SizedBox(height: 8),
                 CustomTextFormField(
-                  hintText: 'Event Title',
+                  hintText: lang.event_title_hint,
                   controller: nameController,
                   validator: (val) {
                     if (val == null || val.isEmpty) {
-                      return 'Event Title cannot be empty';
+                      return lang.event_name_empty_error;
                     }
                     return null;
                   },
@@ -111,18 +159,18 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Description',
+                  lang.event_description,
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: ColorPalette.blackTextColor,
                   ),
                 ),
                 const SizedBox(height: 8),
                 CustomTextFormField(
-                  hintText: 'Event Description',
+                  hintText: lang.event_description_hint,
                   controller: descriptionController,
                   validator: (val) {
                     if (val == null || val.isEmpty || val.length < 20) {
-                      return 'Event Description cannot be empty \nor less than 20 character';
+                      return lang.event_description_empty_error;
                     }
                     return null;
                   },
@@ -143,7 +191,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                           color: ColorPalette.blackTextColor,
                         ),
                         Text(
-                          'Event Date',
+                          lang.event_date,
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: ColorPalette.blackTextColor,
                           ),
@@ -154,7 +202,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                       onPressed: () => _showDatePicker(),
                       style: ElevatedButton.styleFrom(padding: EdgeInsets.zero),
                       child: Text(
-                        dateSelected ?? 'Choose Date',
+                        dateSelected ?? lang.event_choose_date,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.primaryColor,
                         ),
@@ -176,7 +224,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                           color: ColorPalette.blackTextColor,
                         ),
                         Text(
-                          'Event Time',
+                          lang.event_time,
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: ColorPalette.blackTextColor,
                           ),
@@ -187,7 +235,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                       onPressed: () => _showTimePicker(),
                       style: ElevatedButton.styleFrom(padding: EdgeInsets.zero),
                       child: Text(
-                        timeSelected ?? 'Choose Time',
+                        timeSelected ?? lang.event_choose_time,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.primaryColor,
                         ),
@@ -199,7 +247,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                 const SizedBox(height: 16),
 
                 Text(
-                  'Location',
+                  lang.event_location,
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: ColorPalette.blackTextColor,
                   ),
@@ -231,7 +279,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                               ),
                             ),
                             Text(
-                              'Choose Event Location',
+                              lang.event_location_text,
                               style: theme.textTheme.bodyMedium?.copyWith(
                                 color: theme.primaryColor,
                               ),
@@ -255,12 +303,12 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                     if (!formKey.currentState!.validate()) return;
                     if (dateSelected == null) {
                       return Toast.showWarningToast(
-                        title: 'Date of Event cannot be empty',
+                        title: lang.event_toast_date_empty,
                       );
                     }
                     if (timeSelected == null) {
                       return Toast.showWarningToast(
-                        title: 'Time of Event cannot be empty',
+                        title: lang.event_toast_time_empty,
                       );
                     }
                     EasyLoading.show(maskType: EasyLoadingMaskType.black);
@@ -279,19 +327,22 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                     if (isCreated) {
                       Toast.showSuccessToast(
                         title:
-                            '${nameController.text} Event Created Successfully',
+                            '${nameController.text} ${lang.event_toast_create_success}',
                       );
                       Navigator.pop(context, true);
                     } else {
                       Toast.showErrorToast(
-                        title: 'Cannot Create Events now try again Later!',
+                        title: lang.event_toast_create_error,
                       );
                     }
                     EasyLoading.dismiss();
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
-                    child: Text('Add Event', style: theme.textTheme.bodyLarge),
+                    child: Text(
+                      lang.event_add_button_text,
+                      style: theme.textTheme.bodyLarge,
+                    ),
                   ),
                 ),
               ],

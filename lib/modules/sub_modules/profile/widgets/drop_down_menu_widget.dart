@@ -6,24 +6,23 @@ class DropDownMenuWidget extends StatefulWidget {
   const DropDownMenuWidget({
     super.key,
     required this.items,
-    // required this.hintText,
+    this.selected,
+    required this.onChanged,
   });
   final List<DropdownMenuItem> items;
-  // final String hintText;
+  final String? selected;
+  final Function(String? value)? onChanged;
 
   @override
   State<DropDownMenuWidget> createState() => _DropDownMenuWidgetState();
 }
 
 class _DropDownMenuWidgetState extends State<DropDownMenuWidget> {
-  String? selected;
   late AppProvider provider;
   @override
   void initState() {
     super.initState();
     provider = Provider.of<AppProvider>(context, listen: false);
-
-    selected = widget.items.last.value;
   }
 
   @override
@@ -38,7 +37,7 @@ class _DropDownMenuWidgetState extends State<DropDownMenuWidget> {
       child: DropdownButtonHideUnderline(
         child: DropdownButton(
           isExpanded: true,
-          value: selected,
+          value: widget.selected,
           items: widget.items,
           style: theme.textTheme.bodyLarge?.copyWith(
             color: theme.primaryColor,
@@ -46,10 +45,7 @@ class _DropDownMenuWidgetState extends State<DropDownMenuWidget> {
           ),
           iconEnabledColor: theme.primaryColor,
           onChanged: (value) {
-            setState(() {
-              selected = value;
-            });
-            provider.setLocale(value);
+            widget.onChanged!(value);
           },
         ),
       ),

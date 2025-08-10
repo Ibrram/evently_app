@@ -1,4 +1,6 @@
+import 'package:evently_task_app/core/constants/app_assets.dart';
 import 'package:evently_task_app/core/widgets/custom_text_form_field.dart';
+import 'package:evently_task_app/l10n/app_localizations.dart';
 import 'package:evently_task_app/models/category_model.dart';
 import 'package:evently_task_app/models/event_model.dart';
 import 'package:evently_task_app/modules/sub_modules/home/widgets/event_card_widget.dart';
@@ -11,13 +13,61 @@ class LoveScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    AppLocalizations lang = AppLocalizations.of(context)!;
+    final List<CategoryModel> categories = [
+      CategoryModel(
+        icon: Icons.pedal_bike_outlined,
+        backgroundImage: AppAssets.sportEventBackground,
+        name: lang.sport,
+      ),
+      CategoryModel(
+        icon: Icons.cake_outlined,
+        backgroundImage: AppAssets.birthDayEventBackground,
+        name: lang.birth_day,
+      ),
+      CategoryModel(
+        icon: Icons.menu_book_rounded,
+        backgroundImage: AppAssets.bookClubEventBackground,
+        name: lang.book_club,
+      ),
+      CategoryModel(
+        icon: Icons.video_chat_outlined,
+        backgroundImage: AppAssets.meetingEventBackground,
+        name: lang.meeting,
+      ),
+      CategoryModel(
+        icon: Icons.gamepad_outlined,
+        backgroundImage: AppAssets.gamingEventBackground,
+        name: lang.gaming,
+      ),
+      CategoryModel(
+        icon: Icons.free_cancellation_outlined,
+        backgroundImage: AppAssets.holidayEventBackground,
+        name: lang.holiday,
+      ),
+      CategoryModel(
+        icon: Icons.fastfood_outlined,
+        backgroundImage: AppAssets.eatingEventBackground,
+        name: lang.eating,
+      ),
+      CategoryModel(
+        icon: Icons.workspace_premium_outlined,
+        backgroundImage: AppAssets.workShopEventBackground,
+        name: lang.work_shop,
+      ),
+      CategoryModel(
+        icon: Icons.museum_outlined,
+        backgroundImage: AppAssets.exhibitionEventBackground,
+        name: lang.exhibition,
+      ),
+    ];
     return SafeArea(
       child: Column(
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 32, left: 16, right: 16),
             child: CustomTextFormField(
-              hintText: 'Search for Event',
+              hintText: lang.event_search_title,
               hintColor: theme.primaryColor,
               prefixWidget: Icon(
                 Icons.search,
@@ -60,9 +110,7 @@ class LoveScreen extends StatelessWidget {
                         ),
                         image: DecorationImage(
                           image: AssetImage(
-                            CategoryModel
-                                .categories[currentEvent.categoryId]
-                                .backgroundImage,
+                            categories[currentEvent.categoryId].backgroundImage,
                           ),
                           fit: BoxFit.cover,
                         ),

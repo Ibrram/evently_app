@@ -1,5 +1,6 @@
 import 'package:evently_task_app/core/constants/app_assets.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
+import 'package:evently_task_app/l10n/app_localizations.dart';
 import 'package:evently_task_app/models/category_model.dart';
 import 'package:evently_task_app/models/event_model.dart';
 import 'package:evently_task_app/modules/sub_modules/home/widgets/event_card_widget.dart';
@@ -24,6 +25,54 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    AppLocalizations lang = AppLocalizations.of(context)!;
+    final List<CategoryModel> categories = [
+      CategoryModel(
+        icon: Icons.pedal_bike_outlined,
+        backgroundImage: AppAssets.sportEventBackground,
+        name: lang.sport,
+      ),
+      CategoryModel(
+        icon: Icons.cake_outlined,
+        backgroundImage: AppAssets.birthDayEventBackground,
+        name: lang.birth_day,
+      ),
+      CategoryModel(
+        icon: Icons.menu_book_rounded,
+        backgroundImage: AppAssets.bookClubEventBackground,
+        name: lang.book_club,
+      ),
+      CategoryModel(
+        icon: Icons.video_chat_outlined,
+        backgroundImage: AppAssets.meetingEventBackground,
+        name: lang.meeting,
+      ),
+      CategoryModel(
+        icon: Icons.gamepad_outlined,
+        backgroundImage: AppAssets.gamingEventBackground,
+        name: lang.gaming,
+      ),
+      CategoryModel(
+        icon: Icons.free_cancellation_outlined,
+        backgroundImage: AppAssets.holidayEventBackground,
+        name: lang.holiday,
+      ),
+      CategoryModel(
+        icon: Icons.fastfood_outlined,
+        backgroundImage: AppAssets.eatingEventBackground,
+        name: lang.eating,
+      ),
+      CategoryModel(
+        icon: Icons.workspace_premium_outlined,
+        backgroundImage: AppAssets.workShopEventBackground,
+        name: lang.work_shop,
+      ),
+      CategoryModel(
+        icon: Icons.museum_outlined,
+        backgroundImage: AppAssets.exhibitionEventBackground,
+        name: lang.exhibition,
+      ),
+    ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -48,11 +97,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Welcome Back ✨',
+                          lang.welcome_title,
                           style: theme.textTheme.bodySmall,
                         ),
                         Text(
-                          'John Safwat',
+                          'ibram.dev',
                           style: theme.textTheme.bodyLarge?.copyWith(
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
@@ -102,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
 
                 DefaultTabController(
-                  length: CategoryModel.categories.length,
+                  length: categories.length,
                   child: TabBar(
                     onTap: (value) {
                       setState(() {
@@ -114,12 +163,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     tabAlignment: TabAlignment.start,
                     dividerColor: Colors.transparent,
                     labelPadding: EdgeInsets.zero,
-                    tabs: CategoryModel.categories.map((data) {
+                    tabs: categories.map((data) {
                       return TabItemWidget(
                         category: data,
                         isActive:
-                            CategoryModel.categories.indexOf(data) ==
-                            currentCategoryIndex,
+                            categories.indexOf(data) == currentCategoryIndex,
                       );
                     }).toList(),
                   ),
@@ -161,9 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       border: Border.all(color: Theme.of(context).primaryColor),
                       image: DecorationImage(
                         image: AssetImage(
-                          CategoryModel
-                              .categories[currentEvent.categoryId]
-                              .backgroundImage,
+                          categories[currentEvent.categoryId].backgroundImage,
                         ),
                         fit: BoxFit.cover,
                       ),

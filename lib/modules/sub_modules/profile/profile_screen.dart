@@ -1,8 +1,11 @@
 import 'package:evently_task_app/core/constants/app_assets.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
 import 'package:evently_task_app/core/widgets/custom_button.dart';
+import 'package:evently_task_app/l10n/app_localizations.dart';
 import 'package:evently_task_app/modules/sub_modules/profile/widgets/drop_down_menu_widget.dart';
+import 'package:evently_task_app/providers/app_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -10,6 +13,9 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    AppProvider provider = Provider.of<AppProvider>(context, listen: false);
+    AppLocalizations lang = AppLocalizations.of(context)!;
+
     return Column(
       children: [
         Container(
@@ -49,30 +55,48 @@ class ProfileScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'Language',
+                  lang.language_mode,
                   style: theme.textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.w700,
                     color: ColorPalette.blackTextColor,
                   ),
                 ),
-                const DropDownMenuWidget(
+                DropDownMenuWidget(
                   items: [
-                    DropdownMenuItem(value: 'ar', child: Text('Arabic')),
-                    DropdownMenuItem(value: 'en', child: Text('English')),
+                    DropdownMenuItem(
+                      value: 'ar',
+                      child: Text(lang.language_ar),
+                    ),
+                    DropdownMenuItem(
+                      value: 'en',
+                      child: Text(lang.language_en),
+                    ),
                   ],
+                  onChanged: (value) {
+                    provider.setLocale(value!);
+                  },
+                  selected: provider.locale.toString(),
                 ),
                 Text(
-                  'Theme',
+                  lang.theme_mode,
                   style: theme.textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.w700,
                     color: ColorPalette.blackTextColor,
                   ),
                 ),
-                const DropDownMenuWidget(
+                DropDownMenuWidget(
                   items: [
-                    DropdownMenuItem(value: 'light', child: Text('Light')),
-                    DropdownMenuItem(value: 'dark', child: Text('Dark')),
+                    DropdownMenuItem(
+                      value: 'light',
+                      child: Text(lang.theme_light),
+                    ),
+                    DropdownMenuItem(
+                      value: 'dark',
+                      child: Text(lang.theme_dark),
+                    ),
                   ],
+                  onChanged: (value) {},
+                  selected: 'light',
                 ),
                 const Spacer(),
                 Container(
@@ -92,7 +116,7 @@ class ProfileScreen extends StatelessWidget {
                             color: Colors.white,
                           ),
                           Text(
-                            'Logout',
+                            lang.logout,
                             style: theme.textTheme.bodyLarge?.copyWith(
                               fontWeight: FontWeight.w400,
                             ),

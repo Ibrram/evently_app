@@ -42,6 +42,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get already_have_account => 'Already Have Account?';
 
   @override
+  String get welcome_title => 'Welcome Back ✨';
+
+  @override
+  String get language_mode => 'Language';
+
+  @override
+  String get language_ar => 'Arabic';
+
+  @override
+  String get language_en => 'English';
+
+  @override
+  String get theme_mode => 'Theme';
+
+  @override
+  String get theme_light => 'Light';
+
+  @override
+  String get theme_dark => 'Dark';
+
+  @override
+  String get logout => 'Logout';
+
+  @override
   String get or => 'OR';
 
   @override
@@ -88,4 +112,66 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get exhibition => 'Exhibition';
+
+  @override
+  String get event_screen_appbar_title => 'Create Event';
+
+  @override
+  String get event_title => 'Title';
+
+  @override
+  String get event_title_hint => 'Event Title';
+
+  @override
+  String get event_name_empty_error => 'Event Title cannot be empty';
+
+  @override
+  String get event_description => 'Description';
+
+  @override
+  String get event_description_hint => 'Event Description';
+
+  @override
+  String get event_description_empty_error =>
+      'Event Description cannot be empty \nor less than 20 character';
+
+  @override
+  String get event_date => 'Event Date';
+
+  @override
+  String get event_time => 'Event Time';
+
+  @override
+  String get event_choose_date => 'Choose Date';
+
+  @override
+  String get event_choose_time => 'Choose Time';
+
+  @override
+  String get event_location => 'Location';
+
+  @override
+  String get event_location_text => 'Choose Event Location';
+
+  @override
+  String get event_add_button_text => 'Add Event';
+
+  @override
+  String get event_toast_date_empty => 'Date of Event cannot be empty';
+
+  @override
+  String get event_toast_time_empty => 'Time of Event cannot be empty';
+
+  @override
+  String get event_toast_create_success => 'Event Created Successfully';
+
+  @override
+  String get event_toast_create_error =>
+      'Cannot Create Events now try again Later!';
+
+  @override
+  String get event_details_screen_appbar_title => 'Event Details';
+
+  @override
+  String get event_search_title => 'Search for Event';
 }

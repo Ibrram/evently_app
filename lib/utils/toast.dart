@@ -21,7 +21,7 @@ class Toast {
         title,
         style: const TextStyle(
           color: Colors.white,
-          fontFamily: 'Janna',
+          fontFamily: 'Cairo',
           fontSize: 16,
           fontWeight: FontWeight.w700,
         ),
@@ -50,7 +50,7 @@ class Toast {
         title,
         style: const TextStyle(
           color: Color(0xFF1F2937),
-          fontFamily: 'Janna',
+          fontFamily: 'Cairo',
           fontSize: 16,
           fontWeight: FontWeight.w700,
         ),
@@ -79,7 +79,7 @@ class Toast {
         title,
         style: const TextStyle(
           color: Colors.white,
-          fontFamily: 'Janna',
+          fontFamily: 'Cairo',
           fontSize: 16,
           fontWeight: FontWeight.w700,
         ),

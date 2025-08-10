@@ -34,7 +34,7 @@ class MainApp extends StatelessWidget {
     Locale locale = Provider.of<AppProvider>(context).locale;
 
     return MaterialApp(
-      theme: AppThemeManager.lightTheme,
+      theme: AppThemeManager.lightTheme(locale.toString()),
       darkTheme: AppThemeManager.darkTheme,
       themeMode: ThemeMode.light,
       initialRoute: RoutesName.initial,

@@ -1,5 +1,7 @@
+import 'package:evently_task_app/core/constants/app_assets.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
 import 'package:evently_task_app/core/widgets/custom_button.dart';
+import 'package:evently_task_app/l10n/app_localizations.dart';
 import 'package:evently_task_app/models/category_model.dart';
 import 'package:evently_task_app/models/event_model.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +13,57 @@ class ViewEventScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    AppLocalizations lang = AppLocalizations.of(context)!;
+    final List<CategoryModel> categories = [
+      CategoryModel(
+        icon: Icons.pedal_bike_outlined,
+        backgroundImage: AppAssets.sportEventBackground,
+        name: lang.sport,
+      ),
+      CategoryModel(
+        icon: Icons.cake_outlined,
+        backgroundImage: AppAssets.birthDayEventBackground,
+        name: lang.birth_day,
+      ),
+      CategoryModel(
+        icon: Icons.menu_book_rounded,
+        backgroundImage: AppAssets.bookClubEventBackground,
+        name: lang.book_club,
+      ),
+      CategoryModel(
+        icon: Icons.video_chat_outlined,
+        backgroundImage: AppAssets.meetingEventBackground,
+        name: lang.meeting,
+      ),
+      CategoryModel(
+        icon: Icons.gamepad_outlined,
+        backgroundImage: AppAssets.gamingEventBackground,
+        name: lang.gaming,
+      ),
+      CategoryModel(
+        icon: Icons.free_cancellation_outlined,
+        backgroundImage: AppAssets.holidayEventBackground,
+        name: lang.holiday,
+      ),
+      CategoryModel(
+        icon: Icons.fastfood_outlined,
+        backgroundImage: AppAssets.eatingEventBackground,
+        name: lang.eating,
+      ),
+      CategoryModel(
+        icon: Icons.workspace_premium_outlined,
+        backgroundImage: AppAssets.workShopEventBackground,
+        name: lang.work_shop,
+      ),
+      CategoryModel(
+        icon: Icons.museum_outlined,
+        backgroundImage: AppAssets.exhibitionEventBackground,
+        name: lang.exhibition,
+      ),
+    ];
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Event Details'),
+        title: Text(lang.event_details_screen_appbar_title),
         actions: [
           Icon(Icons.mode_edit_outlined, size: 24, color: theme.primaryColor),
           const SizedBox(width: 10),
@@ -35,7 +85,7 @@ class ViewEventScreen extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(16),
                 child: Image.asset(
-                  CategoryModel.categories[event.categoryId].backgroundImage,
+                  categories[event.categoryId].backgroundImage,
                 ),
               ),
               Text(
@@ -133,7 +183,7 @@ class ViewEventScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                'Description',
+                lang.event_description,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: ColorPalette.blackTextColor,
                 ),
