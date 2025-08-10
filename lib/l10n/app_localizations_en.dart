@@ -187,4 +187,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get event_sheet_confirm_toast_success => 'Deleted Successfully';
+
+  @override
+  String get event_edit_screen_button_text => 'Edit Event';
 }

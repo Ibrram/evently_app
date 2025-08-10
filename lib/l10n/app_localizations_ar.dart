@@ -185,4 +185,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get event_sheet_confirm_toast_success => 'تم الحذف بنجاح';
+
+  @override
+  String get event_edit_screen_button_text => 'تعديل الايفنت';
 }

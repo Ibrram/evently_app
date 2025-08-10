@@ -117,6 +117,8 @@
     "event_sheet_confirm_delete_text": "Delete",
     "@event_sheet_confirm_delete_text": {},
     "event_sheet_confirm_toast_success": "Deleted Successfully",
-    "@event_sheet_confirm_toast_success": {}
+    "@event_sheet_confirm_toast_success": {},
+    "event_edit_screen_button_text": "Edit Event",
+    "@event_edit_screen_button_text": {}
 
 }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:evently_task_app/models/event_model.dart';
 
@@ -36,9 +38,21 @@ abstract class FirebaseFirestoreUtil {
     });
   }
 
-  static Future<void> updateEvent({required EventModel event}) {
+  static Future<void> setFavEvent({required EventModel event}) {
     var collectionRef = _getCollectionReference().doc(event.id);
     return collectionRef.update({"isFavourite": !event.isFavourite!});
+  }
+
+  static Future<bool> editEvent({required EventModel event}) async {
+    var collectionRef = _getCollectionReference().doc(event.id);
+    try {
+      await collectionRef.update(event.toFirestore());
+      return true;
+    } catch (e) {
+      log(e.toString());
+      log(event.id.toString());
+      return false;
+    }
   }
 
   static Future<void> deleteEvent({required EventModel event}) {

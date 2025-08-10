@@ -66,7 +66,7 @@ class _EventCardWidgetState extends State<EventCardWidget> {
                 IconButton(
                   onPressed: () {
                     setState(() {
-                      FirebaseFirestoreUtil.updateEvent(event: widget.event);
+                      FirebaseFirestoreUtil.setFavEvent(event: widget.event);
                     });
                   },
                   constraints: const BoxConstraints(),

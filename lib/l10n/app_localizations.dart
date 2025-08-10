@@ -451,6 +451,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Deleted Successfully'**
   String get event_sheet_confirm_toast_success;
+
+  /// No description provided for @event_edit_screen_button_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Event'**
+  String get event_edit_screen_button_text;
 }
 
 class _AppLocalizationsDelegate

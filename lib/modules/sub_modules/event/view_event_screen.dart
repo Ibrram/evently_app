@@ -68,7 +68,25 @@ class ViewEventScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(lang.event_details_screen_appbar_title),
         actions: [
-          Icon(Icons.mode_edit_outlined, size: 24, color: theme.primaryColor),
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                RoutesName.editEvent,
+                arguments: event,
+              );
+            },
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            style: IconButton.styleFrom(
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+            icon: Icon(
+              Icons.mode_edit_outlined,
+              size: 24,
+              color: theme.primaryColor,
+            ),
+          ),
           const SizedBox(width: 10),
           IconButton(
             onPressed: () {
