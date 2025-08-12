@@ -457,6 +457,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Edit Event'**
   String get event_edit_screen_button_text;
+
+  /// No description provided for @register_successfully_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Successfully Created'**
+  String get register_successfully_msg;
+
+  /// No description provided for @register_weak_password_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'The password provided is too weak.'**
+  String get register_weak_password_msg;
+
+  /// No description provided for @register_email_already_in_use_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'The account already exists for that email.'**
+  String get register_email_already_in_use_msg;
+
+  /// No description provided for @login_successfully_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome you got successfully logged-in'**
+  String get login_successfully_msg;
+
+  /// No description provided for @login_invalid_credential_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Credential'**
+  String get login_invalid_credential_msg;
+
+  /// No description provided for @login_unexpected_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'An unexpected error occurred.'**
+  String get login_unexpected_msg;
+
+  /// No description provided for @login_screen_email_empty_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Field cannot be Empty'**
+  String get login_screen_email_empty_msg;
+
+  /// No description provided for @login_screen_email_not_vaild_email_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter a vaild Eamil'**
+  String get login_screen_email_not_vaild_email_msg;
+
+  /// No description provided for @login_screen_password_empty_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Password cannot be Empty'**
+  String get login_screen_password_empty_msg;
+
+  /// No description provided for @login_screen_password_not_valid_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Password does not meet the requirements'**
+  String get login_screen_password_not_valid_msg;
+
+  /// No description provided for @password_confirmation_empty_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Password confirmation cannot be empty'**
+  String get password_confirmation_empty_msg;
+
+  /// No description provided for @password_confirmation_not_match_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match, please check it'**
+  String get password_confirmation_not_match_msg;
+
+  /// No description provided for @password_empty_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Password cannot be empty'**
+  String get password_empty_msg;
+
+  /// No description provided for @password_not_valid_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Password should be:\n* At least 8 characters long\n* Contain at least one uppercase letter\n* Contain at least one lowercase letter\n* Contain at least one digit\n* Contain at least one special character'**
+  String get password_not_valid_msg;
+
+  /// No description provided for @email_empty_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Email field cannot be empty'**
+  String get email_empty_msg;
+
+  /// No description provided for @email_not_valid_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email'**
+  String get email_not_valid_msg;
+
+  /// No description provided for @name_empty_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'Name cannot be empty'**
+  String get name_empty_msg;
 }
 
 class _AppLocalizationsDelegate

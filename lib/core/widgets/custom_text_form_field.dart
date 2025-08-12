@@ -31,7 +31,7 @@ class CustomTextFormField extends StatefulWidget {
   final void Function(String)? onChanged;
   final void Function(String)? onFieldSubmitted;
   final TextInputType? textInputType;
-  final String? Function(String?)? validator;
+  final String? Function(String? value)? validator;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();

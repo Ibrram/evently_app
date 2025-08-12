@@ -188,4 +188,64 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get event_edit_screen_button_text => 'تعديل الايفنت';
+
+  @override
+  String get register_successfully_msg => 'تم إنشاء الحساب بنجاح';
+
+  @override
+  String get register_weak_password_msg =>
+      'كلمة المرور التي أدخلتها ضعيفة جدًا.';
+
+  @override
+  String get register_email_already_in_use_msg =>
+      'يوجد حساب مسجل بالفعل بهذا البريد الإلكتروني.';
+
+  @override
+  String get login_successfully_msg => 'مرحبًا! تم تسجيل دخولك بنجاح';
+
+  @override
+  String get login_invalid_credential_msg => 'بيانات الدخول غير صحيحة';
+
+  @override
+  String get login_unexpected_msg => 'حدث خطأ غير متوقع.';
+
+  @override
+  String get login_screen_email_empty_msg =>
+      'حقل البريد الإلكتروني لا يمكن أن يكون فارغًا';
+
+  @override
+  String get login_screen_email_not_vaild_email_msg =>
+      'يرجى إدخال بريد إلكتروني صالح';
+
+  @override
+  String get login_screen_password_empty_msg =>
+      'لا يمكن أن تكون كلمة المرور فارغة';
+
+  @override
+  String get login_screen_password_not_valid_msg =>
+      'كلمة المرور لا تطابق المتطلبات';
+
+  @override
+  String get password_confirmation_empty_msg =>
+      'تأكيد كلمة المرور لا يمكن أن يكون فارغًا';
+
+  @override
+  String get password_confirmation_not_match_msg =>
+      'كلمتا المرور غير متطابقتين، يرجى التحقق';
+
+  @override
+  String get password_empty_msg => 'لا يمكن أن تكون كلمة المرور فارغة';
+
+  @override
+  String get password_not_valid_msg =>
+      'يجب أن تكون كلمة المرور:\n* بطول 8 أحرف على الأقل\n* تحتوي على حرف كبير واحد على الأقل\n* تحتوي على حرف صغير واحد على الأقل\n* تحتوي على رقم واحد على الأقل\n* تحتوي على رمز خاص واحد على الأقل';
+
+  @override
+  String get email_empty_msg => 'حقل البريد الإلكتروني لا يمكن أن يكون فارغًا';
+
+  @override
+  String get email_not_valid_msg => 'يرجى إدخال بريد إلكتروني صالح';
+
+  @override
+  String get name_empty_msg => 'لا يمكن أن يكون الاسم فارغًا';
 }

@@ -12,7 +12,12 @@
           "package_name": "com.piro.evently_task_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "139660408618-1pk9aohpuli1o6sdn5d9djmdmeqtl9kp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAIeavjvLqsPZysm8eiDWlU6P7HR6LP4Fw"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139660408618-1pk9aohpuli1o6sdn5d9djmdmeqtl9kp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "139660408618-cbic0u3hbord2o89ds4b3unjouhi9toa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eventlyTaskApp"
+              }
+            }
+          ]
         }
       }
     }

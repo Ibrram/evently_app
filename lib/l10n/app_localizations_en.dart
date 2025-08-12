@@ -190,4 +190,61 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get event_edit_screen_button_text => 'Edit Event';
+
+  @override
+  String get register_successfully_msg => 'Account Successfully Created';
+
+  @override
+  String get register_weak_password_msg => 'The password provided is too weak.';
+
+  @override
+  String get register_email_already_in_use_msg =>
+      'The account already exists for that email.';
+
+  @override
+  String get login_successfully_msg => 'Welcome you got successfully logged-in';
+
+  @override
+  String get login_invalid_credential_msg => 'Invalid Credential';
+
+  @override
+  String get login_unexpected_msg => 'An unexpected error occurred.';
+
+  @override
+  String get login_screen_email_empty_msg => 'Email Field cannot be Empty';
+
+  @override
+  String get login_screen_email_not_vaild_email_msg =>
+      'Please Enter a vaild Eamil';
+
+  @override
+  String get login_screen_password_empty_msg => 'Password cannot be Empty';
+
+  @override
+  String get login_screen_password_not_valid_msg =>
+      'Password does not meet the requirements';
+
+  @override
+  String get password_confirmation_empty_msg =>
+      'Password confirmation cannot be empty';
+
+  @override
+  String get password_confirmation_not_match_msg =>
+      'Passwords do not match, please check it';
+
+  @override
+  String get password_empty_msg => 'Password cannot be empty';
+
+  @override
+  String get password_not_valid_msg =>
+      'Password should be:\n* At least 8 characters long\n* Contain at least one uppercase letter\n* Contain at least one lowercase letter\n* Contain at least one digit\n* Contain at least one special character';
+
+  @override
+  String get email_empty_msg => 'Email field cannot be empty';
+
+  @override
+  String get email_not_valid_msg => 'Please enter a valid email';
+
+  @override
+  String get name_empty_msg => 'Name cannot be empty';
 }
