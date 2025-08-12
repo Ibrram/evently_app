@@ -1,5 +1,7 @@
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
+import 'package:evently_task_app/providers/app_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
@@ -40,6 +42,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    AppProvider provider = Provider.of<AppProvider>(context);
 
     return TextFormField(
       controller: widget.controller,
@@ -51,7 +54,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       minLines: widget.minLine,
       validator: widget.validator,
       style: theme.textTheme.bodyMedium?.copyWith(
-        color: ColorPalette.blackTextColor,
+        color: provider.theme == ThemeMode.light
+            ? ColorPalette.blackTextColor
+            : ColorPalette.scaffoldBackground,
       ),
       decoration: InputDecoration(
         hintText: widget.hintText,

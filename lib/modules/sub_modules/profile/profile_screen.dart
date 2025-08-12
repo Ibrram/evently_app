@@ -58,7 +58,9 @@ class ProfileScreen extends StatelessWidget {
                   lang.language_mode,
                   style: theme.textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.w700,
-                    color: ColorPalette.blackTextColor,
+                    color: provider.theme == ThemeMode.light
+                        ? ColorPalette.blackTextColor
+                        : ColorPalette.scaffoldBackground,
                   ),
                 ),
                 DropDownMenuWidget(
@@ -81,7 +83,9 @@ class ProfileScreen extends StatelessWidget {
                   lang.theme_mode,
                   style: theme.textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.w700,
-                    color: ColorPalette.blackTextColor,
+                    color: provider.theme == ThemeMode.light
+                        ? ColorPalette.blackTextColor
+                        : ColorPalette.scaffoldBackground,
                   ),
                 ),
                 DropDownMenuWidget(
@@ -95,8 +99,12 @@ class ProfileScreen extends StatelessWidget {
                       child: Text(lang.theme_dark),
                     ),
                   ],
-                  onChanged: (value) {},
-                  selected: 'light',
+                  onChanged: (value) {
+                    provider.setTheme(
+                      value == 'dark' ? ThemeMode.dark : ThemeMode.light,
+                    );
+                  },
+                  selected: provider.theme == ThemeMode.dark ? 'dark' : 'light',
                 ),
                 const Spacer(),
                 Container(

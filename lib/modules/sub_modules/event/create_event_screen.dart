@@ -91,6 +91,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(lang.event_screen_appbar_title),
+        foregroundColor: theme.primaryColor,
         forceMaterialTransparency: true,
       ),
       body: SingleChildScrollView(

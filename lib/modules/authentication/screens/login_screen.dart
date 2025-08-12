@@ -140,7 +140,7 @@ class LoginScreen extends StatelessWidget {
                   ),
 
                   CustomButton(
-                    backgroundColor: Colors.white,
+                    backgroundColor: Colors.transparent,
                     onPressed: () {},
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),

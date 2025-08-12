@@ -5,9 +5,11 @@ import 'package:evently_task_app/core/widgets/custom_button.dart';
 import 'package:evently_task_app/l10n/app_localizations.dart';
 import 'package:evently_task_app/models/category_model.dart';
 import 'package:evently_task_app/models/event_model.dart';
+import 'package:evently_task_app/providers/app_provider.dart';
 import 'package:evently_task_app/utils/firebase_firestore_util.dart';
 import 'package:evently_task_app/utils/toast.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ViewEventScreen extends StatelessWidget {
   const ViewEventScreen({super.key, required this.event});
@@ -17,6 +19,7 @@ class ViewEventScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     AppLocalizations lang = AppLocalizations.of(context)!;
+    AppProvider provider = Provider.of<AppProvider>(context);
     final List<CategoryModel> categories = [
       CategoryModel(
         icon: Icons.pedal_bike_outlined,
@@ -67,6 +70,7 @@ class ViewEventScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(lang.event_details_screen_appbar_title),
+        foregroundColor: theme.primaryColor,
         actions: [
           IconButton(
             onPressed: () {
@@ -231,7 +235,9 @@ class ViewEventScreen extends StatelessWidget {
                               Text(
                                 event.time,
                                 style: theme.textTheme.bodyMedium?.copyWith(
-                                  color: ColorPalette.blackTextColor,
+                                  color: provider.theme == ThemeMode.light
+                                      ? ColorPalette.blackTextColor
+                                      : ColorPalette.scaffoldBackground,
                                 ),
                               ),
                             ],
@@ -285,13 +291,17 @@ class ViewEventScreen extends StatelessWidget {
               Text(
                 lang.event_description,
                 style: theme.textTheme.bodyMedium?.copyWith(
-                  color: ColorPalette.blackTextColor,
+                  color: provider.theme == ThemeMode.light
+                      ? ColorPalette.blackTextColor
+                      : ColorPalette.scaffoldBackground,
                 ),
               ),
               Text(
                 event.description,
                 style: theme.textTheme.bodyMedium?.copyWith(
-                  color: ColorPalette.blackTextColor,
+                  color: provider.theme == ThemeMode.light
+                      ? ColorPalette.blackTextColor
+                      : ColorPalette.scaffoldBackground,
                 ),
               ),
             ],

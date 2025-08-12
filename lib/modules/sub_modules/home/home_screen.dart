@@ -4,9 +4,11 @@ import 'package:evently_task_app/l10n/app_localizations.dart';
 import 'package:evently_task_app/models/category_model.dart';
 import 'package:evently_task_app/models/event_model.dart';
 import 'package:evently_task_app/modules/sub_modules/home/widgets/event_card_widget.dart';
+import 'package:evently_task_app/providers/app_provider.dart';
 import 'package:evently_task_app/utils/firebase_firestore_util.dart';
 import 'package:evently_task_app/widgets/tab_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     AppLocalizations lang = AppLocalizations.of(context)!;
+    AppProvider provider = Provider.of<AppProvider>(context);
     final List<CategoryModel> categories = [
       CategoryModel(
         icon: Icons.pedal_bike_outlined,
@@ -78,7 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: theme.primaryColor,
+            color: provider.theme == ThemeMode.light
+                ? theme.primaryColor
+                : ColorPalette.primaryDarkColor,
             borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(24),
               bottomRight: Radius.circular(24),

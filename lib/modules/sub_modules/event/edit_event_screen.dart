@@ -6,12 +6,14 @@ import 'package:evently_task_app/core/widgets/custom_text_form_field.dart';
 import 'package:evently_task_app/l10n/app_localizations.dart';
 import 'package:evently_task_app/models/category_model.dart';
 import 'package:evently_task_app/models/event_model.dart';
+import 'package:evently_task_app/providers/app_provider.dart';
 import 'package:evently_task_app/utils/firebase_firestore_util.dart';
 import 'package:evently_task_app/utils/toast.dart';
 import 'package:evently_task_app/widgets/tab_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class EditEventScreen extends StatefulWidget {
   const EditEventScreen({super.key, required this.event});
@@ -42,6 +44,7 @@ class _EditEventScreenState extends State<EditEventScreen> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     AppLocalizations lang = AppLocalizations.of(context)!;
+    AppProvider provider = Provider.of<AppProvider>(context);
     final List<CategoryModel> categories = [
       CategoryModel(
         icon: Icons.pedal_bike_outlined,
@@ -94,6 +97,7 @@ class _EditEventScreenState extends State<EditEventScreen> {
     return Scaffold(
       appBar: AppBar(
         title: FittedBox(child: Text(widget.event.name)),
+        foregroundColor: theme.primaryColor,
         forceMaterialTransparency: true,
       ),
       body: SingleChildScrollView(
@@ -139,7 +143,9 @@ class _EditEventScreenState extends State<EditEventScreen> {
                 Text(
                   lang.event_title,
                   style: theme.textTheme.bodyMedium?.copyWith(
-                    color: ColorPalette.blackTextColor,
+                    color: provider.theme == ThemeMode.light
+                        ? ColorPalette.blackTextColor
+                        : ColorPalette.scaffoldBackground,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -164,7 +170,9 @@ class _EditEventScreenState extends State<EditEventScreen> {
                 Text(
                   lang.event_description,
                   style: theme.textTheme.bodyMedium?.copyWith(
-                    color: ColorPalette.blackTextColor,
+                    color: provider.theme == ThemeMode.light
+                        ? ColorPalette.blackTextColor
+                        : ColorPalette.scaffoldBackground,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -188,15 +196,19 @@ class _EditEventScreenState extends State<EditEventScreen> {
                     Row(
                       spacing: 10,
                       children: [
-                        const Icon(
+                        Icon(
                           Icons.calendar_month_outlined,
                           size: 24,
-                          color: ColorPalette.blackTextColor,
+                          color: provider.theme == ThemeMode.light
+                              ? ColorPalette.blackTextColor
+                              : ColorPalette.scaffoldBackground,
                         ),
                         Text(
                           lang.event_date,
                           style: theme.textTheme.bodyMedium?.copyWith(
-                            color: ColorPalette.blackTextColor,
+                            color: provider.theme == ThemeMode.light
+                                ? ColorPalette.blackTextColor
+                                : ColorPalette.scaffoldBackground,
                           ),
                         ),
                       ],
@@ -221,15 +233,19 @@ class _EditEventScreenState extends State<EditEventScreen> {
                     Row(
                       spacing: 10,
                       children: [
-                        const Icon(
+                        Icon(
                           Icons.access_time_outlined,
                           size: 24,
-                          color: ColorPalette.blackTextColor,
+                          color: provider.theme == ThemeMode.light
+                              ? ColorPalette.blackTextColor
+                              : ColorPalette.scaffoldBackground,
                         ),
                         Text(
                           lang.event_time,
                           style: theme.textTheme.bodyMedium?.copyWith(
-                            color: ColorPalette.blackTextColor,
+                            color: provider.theme == ThemeMode.light
+                                ? ColorPalette.blackTextColor
+                                : ColorPalette.scaffoldBackground,
                           ),
                         ),
                       ],
@@ -252,7 +268,9 @@ class _EditEventScreenState extends State<EditEventScreen> {
                 Text(
                   lang.event_location,
                   style: theme.textTheme.bodyMedium?.copyWith(
-                    color: ColorPalette.blackTextColor,
+                    color: provider.theme == ThemeMode.light
+                        ? ColorPalette.blackTextColor
+                        : ColorPalette.scaffoldBackground,
                   ),
                 ),
 

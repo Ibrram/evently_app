@@ -31,17 +31,17 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Locale locale = Provider.of<AppProvider>(context).locale;
+    AppProvider provider = Provider.of<AppProvider>(context);
 
     return MaterialApp(
-      theme: AppThemeManager.lightTheme(locale.toString()),
-      darkTheme: AppThemeManager.darkTheme,
-      themeMode: ThemeMode.light,
+      theme: AppThemeManager.lightTheme(provider.locale.toString()),
+      darkTheme: AppThemeManager.darkTheme(provider.locale.toString()),
+      themeMode: provider.theme,
       initialRoute: RoutesName.initial,
       onGenerateRoute: AppRoutes.onGenerateRoutes,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: locale,
+      locale: provider.locale,
       debugShowCheckedModeBanner: false,
       builder: EasyLoading.init(builder: BotToastInit()),
     );

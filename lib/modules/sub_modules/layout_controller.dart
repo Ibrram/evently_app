@@ -3,7 +3,9 @@ import 'package:evently_task_app/core/constants/layout_screens.dart';
 import 'package:evently_task_app/core/routes/routes_name.dart';
 import 'package:evently_task_app/core/theme_manager/color_palette.dart';
 import 'package:evently_task_app/l10n/app_localizations.dart';
+import 'package:evently_task_app/providers/app_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LayoutController extends StatefulWidget {
   const LayoutController({super.key});
@@ -19,6 +21,7 @@ class _LayoutControllerState extends State<LayoutController> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     var lang = AppLocalizations.of(context)!;
+    ThemeMode themeMode = Provider.of<AppProvider>(context).theme;
     return Scaffold(
       extendBodyBehindAppBar: true,
       floatingActionButton: FloatingActionButton(
@@ -35,7 +38,9 @@ class _LayoutControllerState extends State<LayoutController> {
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
-            color: theme.primaryColor,
+            color: themeMode == ThemeMode.light
+                ? theme.primaryColor
+                : ColorPalette.primaryDarkColor,
             borderRadius: BorderRadius.circular(75),
           ),
           child: const Icon(
