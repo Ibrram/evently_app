@@ -16,6 +16,7 @@ dependencies:
   flutter_easyloading: ^3.0.5
   flutter_localizations:
     sdk: flutter
+  google_sign_in: ^7.1.1
   intl: null
   provider: ^6.1.5
   shared_preferences: ^2.5.3

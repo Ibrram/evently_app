@@ -190,7 +190,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     CustomButton(
                       backgroundColor: Colors.transparent,
-                      onPressed: () {},
+                      onPressed: () => FirebaseAuthUtil.signInWithGoogle(),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Row(
