@@ -153,6 +153,23 @@
     "email_not_valid_msg": "Please enter a valid email",
     "@email_not_valid_msg": {},
     "name_empty_msg": "Name cannot be empty",
-    "@name_empty_msg": {}
-
+    "@name_empty_msg": {},
+    "initial_on_board_head": "Personalize Your Experience",
+    "@initial_on_board_head": {},
+    "initial_on_board_sub": "Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.",
+    "@initial_on_board_sub": {},
+    "initial_on_board_button": "Let’s Start",
+    "@initial_on_board_button": {},
+    "onboard_1_title": "Find Events That Inspire You",
+    "@onboard_1_title": {},
+    "onboard_1_desc": "Dive into a world of events crafted to fit your unique interests. Whether you're into live music, art workshops, professional networking, or simply discovering new experiences, we have something for everyone. Our curated recommendations will help you explore, connect, and make the most of every opportunity around you.",
+    "@onboard_1_desc": {},
+    "onboard_2_title": "Effortless Event Planning",
+    "@onboard_2_title": {},
+    "onboard_2_desc": "Take the hassle out of organizing events with our all-in-one planning tools. From setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.",
+    "@onboard_2_desc": {},
+    "onboard_3_title": "Connect with Friends & Share Moments",
+    "@onboard_3_title": {},
+    "onboard_3_desc": "Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.",
+    "@onboard_3_desc": {}
 }

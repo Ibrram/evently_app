@@ -1,5 +1,6 @@
 abstract class AppAssets {
   static const String logoV = 'assets/images/app_logo_vertical.png';
+  static const String logoH = 'assets/images/logo_horizontal.png';
   static const String routeWhiteLogo = 'assets/images/route_white_logo.png';
   static const String brandingLogo = 'assets/images/branding_logo.png';
   static const String emailIcon = 'assets/icons/mail_icon.png';
@@ -8,6 +9,7 @@ abstract class AppAssets {
   static const String userIcon = 'assets/icons/user_icon.png';
   static const String forgetPassImage =
       'assets/images/forget_password_screen_image.png';
+  static const String initialOnboard = 'assets/images/initial_onboard_img.png';
   static const String homeIcon = 'assets/icons/home_icon.png';
   static const String homeFillIcon = 'assets/icons/home_fill_icon.png';
   static const String mapIcon = 'assets/icons/map_icon.png';
@@ -17,6 +19,11 @@ abstract class AppAssets {
   static const String profileIcon = 'assets/icons/profile_icon.png';
   static const String profileFillIcon = 'assets/icons/profile_fill_icon.png';
   static const String noteEdit = 'assets/icons/note_edit.png';
+  static const String enIcon = 'assets/icons/en_icon.png';
+  static const String arIcon = 'assets/icons/ar_icon.png';
+  static const String onboard_1 = 'assets/images/onboard_1.png';
+  static const String onboard_2 = 'assets/images/onboard_2.png';
+  static const String onboard_3 = 'assets/images/onboard_3.png';
   //
   static const String sportEventBackground =
       'assets/images/events_background/sport.png';

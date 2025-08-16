@@ -5,8 +5,10 @@ class AppProvider extends ChangeNotifier {
   late final SharedPreferences prefs;
   Locale _locale = const Locale('en');
   ThemeMode _theme = ThemeMode.light;
+  bool _onboardInitialized = false;
   Locale get locale => _locale;
   ThemeMode get theme => _theme;
+  bool get onboardInitialized => _onboardInitialized;
 
   AppProvider(this.prefs) {
     String? lang = prefs.getString('lang');
@@ -32,6 +34,12 @@ class AppProvider extends ChangeNotifier {
       'themeMode',
       _theme == ThemeMode.dark ? 'dark' : 'light',
     );
+    notifyListeners();
+  }
+
+  Future<void> setOnboardInitialized() async {
+    await prefs.setBool('onboardInitialized', _onboardInitialized);
+    _onboardInitialized = true;
     notifyListeners();
   }
 }

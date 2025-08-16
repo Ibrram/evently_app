@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class FirebaseAuthUtil {
@@ -29,26 +26,6 @@ abstract class FirebaseAuthUtil {
       return 'unexpected';
     }
     return 'unexpected';
-  }
-
-  static Future<void> signInWithGoogle() async {
-    // Trigger the authentication flow
-    final GoogleSignInAccount? googleUser = await GoogleSignIn.instance
-        .authenticate();
-
-    // Obtain the auth details from the request
-    final GoogleSignInAuthentication googleAuth = googleUser!.authentication;
-
-    // Create a new credential
-    final credential = GoogleAuthProvider.credential(
-      idToken: googleAuth.idToken,
-    );
-
-    // Once signed in, return the UserCredential
-    UserCredential user = await FirebaseAuth.instance.signInWithCredential(
-      credential,
-    );
-    log(user.toString());
   }
 
   static Future<String?> signInUserWithEmailAndPassword(

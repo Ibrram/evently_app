@@ -559,6 +559,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Name cannot be empty'**
   String get name_empty_msg;
+
+  /// No description provided for @initial_on_board_head.
+  ///
+  /// In en, this message translates to:
+  /// **'Personalize Your Experience'**
+  String get initial_on_board_head;
+
+  /// No description provided for @initial_on_board_sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.'**
+  String get initial_on_board_sub;
+
+  /// No description provided for @initial_on_board_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Let’s Start'**
+  String get initial_on_board_button;
+
+  /// No description provided for @onboard_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Find Events That Inspire You'**
+  String get onboard_1_title;
+
+  /// No description provided for @onboard_1_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Dive into a world of events crafted to fit your unique interests. Whether you\'re into live music, art workshops, professional networking, or simply discovering new experiences, we have something for everyone. Our curated recommendations will help you explore, connect, and make the most of every opportunity around you.'**
+  String get onboard_1_desc;
+
+  /// No description provided for @onboard_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Effortless Event Planning'**
+  String get onboard_2_title;
+
+  /// No description provided for @onboard_2_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Take the hassle out of organizing events with our all-in-one planning tools. From setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.'**
+  String get onboard_2_desc;
+
+  /// No description provided for @onboard_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect with Friends & Share Moments'**
+  String get onboard_3_title;
+
+  /// No description provided for @onboard_3_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.'**
+  String get onboard_3_desc;
 }
 
 class _AppLocalizationsDelegate
