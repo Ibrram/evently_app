@@ -190,7 +190,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     CustomButton(
                       backgroundColor: Colors.transparent,
-                      onPressed: () {},
+                      onPressed: () => googleLogin(lang),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Row(
@@ -240,5 +240,21 @@ class _LoginScreenState extends State<LoginScreen> {
         }
       });
     }
+  }
+
+  void googleLogin(AppLocalizations lang) {
+    FirebaseAuthUtil.signInWithGoogle().then((value) {
+      if (!mounted) return;
+      if (value == 'signIn-success') {
+        Toast.showSuccessToast(title: lang.login_successfully_msg);
+        Navigator.pushReplacementNamed(context, RoutesName.layoutController);
+      }
+      if (value == "firebase-exception") {
+        Toast.showWarningToast(title: lang.login_unexpected_msg);
+      }
+      if (value == "exception") {
+        Toast.showWarningToast(title: lang.login_unexpected_msg);
+      }
+    });
   }
 }

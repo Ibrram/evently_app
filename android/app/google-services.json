@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "139660408618-1pk9aohpuli1o6sdn5d9djmdmeqtl9kp.apps.googleusercontent.com",
+          "client_id": "139660408618-84t16taaakrc6nvl0pfb8lpmesobiktt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.piro.evently_task_app",
+            "certificate_hash": "47191263b49a73466f39e15722b8756843be02a5"
+          }
+        },
+        {
+          "client_id": "139660408618-irmpu3t8neutkn6n01va365tanova2io.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '139660408618',
     projectId: 'event-task-app-ae4a6',
     storageBucket: 'event-task-app-ae4a6.firebasestorage.app',
+    androidClientId: '139660408618-84t16taaakrc6nvl0pfb8lpmesobiktt.apps.googleusercontent.com',
     iosClientId: '139660408618-cbic0u3hbord2o89ds4b3unjouhi9toa.apps.googleusercontent.com',
     iosBundleId: 'com.example.eventlyTaskApp',
   );
